@@ -130,6 +130,7 @@ footer{text-align:center;opacity:.7;padding:30px}
 
 <body>
 
+<!-- HERO -->
 <section>
 <div class="container hero">
 <div class="logo">UNLOCK <span>SKILL</span></div>
@@ -140,7 +141,7 @@ footer{text-align:center;opacity:.7;padding:30px}
 
 <button class="btn" onclick="scrollToOrder()">🔥 Dapatkan Akses Sekarang</button>
 
-<p style="margin-top:20px">Promo Berakhir Dalam</p>
+<p style="margin-top:20px">⏰ Harga promo berakhir dalam</p>
 <div class="timer">
   <div class="time-box"><span id="min">30</span><br>Menit</div>
   <div class="time-box"><span id="sec">00</span><br>Detik</div>
@@ -148,6 +149,7 @@ footer{text-align:center;opacity:.7;padding:30px}
 </div>
 </section>
 
+<!-- PROBLEM -->
 <section class="container card">
 <h2>Apakah Kamu Mengalami Ini?</h2>
 <ul>
@@ -155,43 +157,83 @@ footer{text-align:center;opacity:.7;padding:30px}
 <li>Bingung mulai bisnis online</li>
 <li>Modal terbatas</li>
 <li>Takut gagal</li>
+<li>Punya HP tapi belum menghasilkan</li>
 </ul>
 </section>
 
+<!-- SOLUTION -->
 <section class="container card">
 <h2>Solusi Unlock Skill</h2>
 <ul>
 <li>Ribuan produk digital siap pakai</li>
 <li>Bisa dipakai pribadi / dijual ulang</li>
+<li><b>PLR / MRR — Bebas Jual Ulang</b></li>
 <li>Boleh pakai brand sendiri</li>
-<li>Akses seumur hidup</li>
+<li>Akses & update seumur hidup</li>
 </ul>
 </section>
 
+<!-- CARA KERJA -->
 <section class="container card">
-<h2>Cara Kerja</h2>
+<h2>Cara Kerja Unlock Skill</h2>
 <div class="steps">
 <div class="step-box">
-<h3>🎯 Pribadi</h3>
+<h3>🎯 Untuk Pribadi</h3>
 <p>Beli → Download → Gunakan</p>
 </div>
 <div class="step-box">
-<h3>💰 Jual Ulang</h3>
+<h3>💰 Untuk Cari Uang</h3>
 <p>Beli → Download → Upload → Promosi → Terima Uang</p>
 </div>
 </div>
 </section>
 
+<!-- ISI PAKET -->
 <section class="container card">
-<h2>Isi Paket</h2>
+<h2>Isi Paket Unlock Skill</h2>
 <div class="mockup">
 <div class="mockup-box">Ebook</div>
 <div class="mockup-box">Template</div>
 <div class="mockup-box">Course</div>
 <div class="mockup-box">Software</div>
 </div>
+<ul>
+<li>Lisensi PLR / MRR</li>
+<li>Marketing kit siap pakai</li>
+<li>Panduan dari nol sampai cuan</li>
+<li>Update produk GRATIS</li>
+</ul>
 </section>
 
+<!-- TESTIMONI -->
+<section class="container card">
+<h2>Apa Kata Mereka?</h2>
+<p><b>Rina — Ibu Rumah Tangga</b><br>
+“Awalnya ragu, tapi sekarang sudah bisa jual produk digital sendiri.”</p>
+<p><b>Andi — Karyawan</b><br>
+“Satu kali beli, produknya banyak banget. Worth it!”</p>
+<p><b>Dewi — UMKM</b><br>
+“Template & ebook-nya sangat membantu bisnis saya.”</p>
+</section>
+
+<!-- FAQ -->
+<section class="container card">
+<h2>Pertanyaan yang Sering Ditanyakan</h2>
+<p><b>❓ Apakah ini legal?</b><br>Ya, produk memiliki lisensi PLR / MRR.</p>
+<p><b>❓ Sekali bayar?</b><br>Ya, akses seumur hidup.</p>
+<p><b>❓ Pemula bisa?</b><br>Sangat bisa, ada panduan lengkap.</p>
+<p><b>❓ Dikirim ke mana?</b><br>Akses dikirim via email.</p>
+</section>
+
+<!-- PRICE -->
+<section class="container card">
+<h2>Harga Promo Spesial</h2>
+<p class="price-old">Rp 699.000</p>
+<p class="price-new">Rp 89.000</p>
+<button class="btn" onclick="scrollToOrder()">🚀 Amankan Harga Promo</button>
+</section>
+
+<!-- ORDER -->
 <section id="order" class="container card">
 <h2>Form Pemesanan</h2>
 
@@ -220,12 +262,11 @@ footer{text-align:center;opacity:.7;padding:30px}
 <footer>© 2026 Unlock Skill</footer>
 
 <script>
-/* SCROLL */
 function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-/* TIMER 30 MENIT */
+/* COUNTDOWN 30 MENIT */
 let end = localStorage.getItem("promo_end");
 if(!end){
   end = Date.now() + 30*60*1000;
