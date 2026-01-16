@@ -279,6 +279,18 @@ Ribuan ebook, template, course, software & marketing kit.</p>
 
 <!-- ORDER -->
 <section id="order">
+  <div id="paymentBox" style="display:none;margin-top:30px;text-align:center">
+  <h3>🔔 Langkah Terakhir: Lakukan Pembayaran</h3>
+  <p>Silakan scan QR di bawah sesuai metode pembayaran yang kamu pilih.</p>
+
+  <img id="qrImage"
+       src=""
+       style="width:220px;border:1px solid #ddd;padding:10px;border-radius:12px">
+
+  <p style="margin-top:15px;font-weight:bold;color:#d63031">
+    Setelah pembayaran, akses akan dikirim via WhatsApp & Email.
+  </p>
+</div>
 <div class="container card">
 <h2>Form Pemesanan</h2>
 
@@ -295,7 +307,9 @@ Ribuan ebook, template, course, software & marketing kit.</p>
 <option value="qris">QRIS</option>
 </select>
 
-<button onclick="processOrder()">🔐 AMANKAN AKSES & MULAI CUAN</button>
+<button class="btn" onclick="processOrder()">
+  🔐 AMANKAN AKSES & MULAI CUAN
+</button>
 
 <div class="qr-box" id="qrBox">
 <h3>Scan QR untuk Pembayaran</h3>
@@ -350,6 +364,51 @@ Mohon info pembayaran 🙏`;
 
   let wa = "https://wa.me/6289514124122?text=" + encodeURIComponent(message);
   window.open(wa,"_blank");
+}
+</script>
+  <script>
+function processOrder(){
+
+  const name   = document.getElementById("name").value.trim();
+  const phone  = document.getElementById("phone").value.trim();
+  const email  = document.getElementById("email").value.trim();
+  const pay    = document.getElementById("payment").value;
+
+  if(!name || !phone || !email || !pay){
+    alert("⚠️ Mohon lengkapi semua data terlebih dahulu.");
+    return;
+  }
+
+  let qrData = "";
+
+  switch(pay){
+    case "bca":
+      qrData = "PAYMENT-BCA-UNLOCKSKILL";
+      break;
+    case "bri":
+      qrData = "PAYMENT-BRI-UNLOCKSKILL";
+      break;
+    case "mandiri":
+      qrData = "PAYMENT-MANDIRI-UNLOCKSKILL";
+      break;
+    case "bni":
+      qrData = "PAYMENT-BNI-UNLOCKSKILL";
+      break;
+    case "dana":
+      qrData = "PAYMENT-DANA-OVO-UNLOCKSKILL";
+      break;
+    case "qris":
+      qrData = "PAYMENT-QRIS-UNLOCKSKILL";
+      break;
+  }
+
+  document.getElementById("qrImage").src =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + qrData;
+
+  document.getElementById("paymentBox").style.display = "block";
+
+  document.getElementById("paymentBox")
+    .scrollIntoView({behavior:"smooth"});
 }
 </script>
 </body>
