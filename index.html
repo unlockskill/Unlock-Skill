@@ -295,7 +295,7 @@ Ribuan ebook, template, course, software & marketing kit.</p>
 <option value="qris">QRIS</option>
 </select>
 
-<button class="btn" onclick="processOrder()">🔥 Lanjutkan ke Pembayaran</button>
+<button onclick="processOrder()">🔐 AMANKAN AKSES & MULAI CUAN</button>
 
 <div class="qr-box" id="qrBox">
 <h3>Scan QR untuk Pembayaran</h3>
@@ -325,14 +325,32 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
+<script>
 function processOrder(){
-  let n=name.value,e=email.value,p=payment.value;
-  if(!n||!e||!p){alert("Lengkapi data & pilih metode");return}
-  qrBox.style.display="block";
-  qrImg.src="https://via.placeholder.com/300?text="+p.toUpperCase()+"+QR";
-  qrBox.scrollIntoView({behavior:"smooth"});
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let payment = document.getElementById("payment").value;
+
+  if(!name || !email || !payment){
+    alert("Lengkapi data & pilih metode pembayaran");
+    return;
+  }
+
+  let message =
+`Halo Admin Unlock Skill 👋
+
+Saya ingin order *Unlock Skill*.
+
+Nama: ${name}
+Email: ${email}
+Metode Pembayaran: ${payment.toUpperCase()}
+Harga: Rp 89.000
+
+Mohon info pembayaran 🙏`;
+
+  let wa = "https://wa.me/6289514124122?text=" + encodeURIComponent(message);
+  window.open(wa,"_blank");
 }
 </script>
-
 </body>
 </html>
