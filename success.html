@@ -9,7 +9,6 @@
 :root{
   --primary:#00ff99;
   --danger:#ff3d00;
-  --dark:#0f2027;
 }
 
 *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
@@ -71,10 +70,7 @@ p{line-height:1.6;opacity:.95}
   text-align:center;
 }
 
-ul{
-  padding-left:18px;
-}
-
+ul{padding-left:18px}
 li{margin:8px 0}
 
 .btn{
@@ -113,18 +109,18 @@ li{margin:8px 0}
   <div class="box">
     <h3>📦 Detail Pesanan</h3>
     <ul>
-      <li>Produk: <b>Unlock Skill – Akses Seumur Hidup</b></li>
+      <li>Produk: <b>8jt Produk Digital – Akses Seumur Hidup</b></li>
       <li>Status: <b>Berhasil</b></li>
-      <li>Metode: Sesuai pilihan kamu</li>
+      <li>Metode Pembayaran: <b id="paymentMethod">-</b></li>
     </ul>
   </div>
 
   <div class="box">
     <h3>📩 Langkah Selanjutnya</h3>
     <ul>
-      <li>Akses produk akan dikirim via <b>Email & WhatsApp</b></li>
+      <li>Akses produk dikirim via <b>Email & WhatsApp</b></li>
       <li>Proses maksimal <b>5–15 menit</b></li>
-      <li>Pastikan nomor & email aktif</li>
+      <li>Pastikan data yang kamu isi aktif</li>
     </ul>
   </div>
 
@@ -135,10 +131,20 @@ li{margin:8px 0}
 
   <div class="small">
     Jika dalam 15 menit belum menerima akses,<br>
-    silakan hubungi admin melalui WhatsApp di atas.
+    silakan hubungi admin melalui WhatsApp.
   </div>
 
 </div>
+
+<script>
+// Ambil parameter metode pembayaran dari URL
+const params = new URLSearchParams(window.location.search);
+const pay = params.get("pay");
+
+// Tampilkan metode pembayaran
+document.getElementById("paymentMethod").innerText =
+  pay ? pay.toUpperCase() : "Menunggu Konfirmasi";
+</script>
 
 </body>
 </html>
