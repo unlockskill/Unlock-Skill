@@ -285,21 +285,22 @@ setInterval(()=>{
 
 /* ORDER */
 function processOrder(){
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const pay = document.getElementById("payment").value;
 
-  // Ambil metode pembayaran yang dipilih
-  const payment = document.querySelector('input[name="payment"]:checked');
-
-  if(!payment){
-    alert("Silakan pilih metode pembayaran terlebih dahulu");
+  if(!name || !email || !pay){
+    alert("Lengkapi data & pilih metode pembayaran");
     return;
   }
 
-  // Ambil value metode pembayaran
-  const paymentMethod = payment.value;
+  // simpan data agar bisa dipakai di success.html
+  localStorage.setItem("order_name", name);
+  localStorage.setItem("order_email", email);
+  localStorage.setItem("order_payment", pay);
 
-  // Arahkan ke halaman sukses
-  window.location.href =
-    "success.html?pay=" + encodeURIComponent(paymentMethod);
+  // arahkan ke halaman sukses
+  window.location.href = "success.html";
 }
 </script>
 
