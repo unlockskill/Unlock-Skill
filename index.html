@@ -2,200 +2,268 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>UnlockSkill – Produk Digital Siap Jual</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unlock Skill — Satu Akses, Banyak Cuan</title>
 
 <style>
+:root{
+  --primary:#6c5ce7;
+  --accent:#00b894;
+  --danger:#d63031;
+  --dark:#1e272e;
+  --light:#f5f6fa;
+}
+
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{
   margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f6f8;
+  background:
+    linear-gradient(120deg,rgba(108,92,231,.15),rgba(0,184,148,.15)),
+    url("https://www.transparenttextures.com/patterns/cubes.png");
   color:#222;
-  line-height:1.6;
 }
-section{padding:60px 20px;}
-.container{max-width:900px;margin:auto;}
-h1,h2,h3{text-align:center;color:#0f172a;}
-.cta{
+
+section{padding:60px 20px}
+.container{max-width:900px;margin:auto}
+
+h1,h2,h3{text-align:center}
+h1 span{color:var(--primary)}
+p{text-align:center;line-height:1.6}
+
+/* LOGO */
+.logo{
+  text-align:center;
+  font-size:32px;
+  font-weight:900;
+}
+.logo span{color:var(--primary)}
+.tagline{font-size:14px;color:#555}
+
+/* BUTTON */
+.btn{
   display:inline-block;
-  background:#dc2626;
+  padding:15px 25px;
+  background:var(--danger);
   color:#fff;
-  padding:16px 28px;
-  border-radius:10px;
   text-decoration:none;
+  border-radius:30px;
   font-weight:bold;
+}
+.btn:hover{opacity:.9}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:25px;
+  margin:20px 0;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+/* CHECKLIST */
+ul{list-style:none;padding:0}
+li{margin:10px 0}
+li::before{
+  content:"✅";
+  margin-right:8px;
+}
+
+/* MOCKUP */
+.mockup{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 .box{
-  background:#fff;
-  padding:30px;
-  border-radius:14px;
-  margin:25px 0;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-.highlight{background:#fff7ed;padding:6px 10px;border-radius:6px;}
-.center{text-align:center;}
-ul{padding-left:20px;}
-.price{
-  font-size:40px;
-  font-weight:bold;
-  color:#16a34a;
-}
-footer{
-  background:#0f172a;
+  width:150px;
+  height:200px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  border-radius:12px;
   color:#fff;
-  text-align:center;
-  padding:30px;
-}
-.badge{
-  background:#fde68a;
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:bold;
+}
+
+/* PRICE */
+.price-old{text-decoration:line-through;color:#888}
+.price-new{font-size:36px;color:var(--accent);font-weight:900}
+
+/* TIMER */
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+.time-box{
+  background:#000;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:8px;
+  min-width:70px;
+  text-align:center;
+}
+
+/* FORM */
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+/* PAYMENT */
+.payment label{
+  display:block;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin:8px 0;
+  cursor:pointer;
+}
+
+/* QR */
+.qr{
+  text-align:center;
+}
+.qr img{
+  width:180px;
+  border:1px solid #ddd;
+  padding:10px;
+  border-radius:12px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section>
-  <div class="container center">
-    <span class="badge">🔥 1x Akses = 8JT+ Produk Digital</span>
-    <h1>Produk Digital Siap Jual<br>Tanpa Produksi Sendiri</h1>
-    <p>Sekarang yang menang di dunia digital bukan yang paling pintar, tapi yang paling cepat punya akses.</p>
+<div class="container">
+  <div class="logo">Unlock <span>Skill</span></div>
+  <div class="tagline">Satu Akses, Banyak Cuan</div>
 
-    <img src="images/hero.jpg" style="width:100%;max-width:500px;border-radius:16px;margin:30px 0;">
+  <h1>1x Akses = <span>Jutaan Produk Digital</span><br>Siap Jual Tanpa Produksi Sendiri</h1>
 
-    <p><b>Hak PLR / MRR – Legal Jual Ulang</b></p>
+  <p>Bahkan kalau kamu masih pemula, gaptek, atau cuma punya HP.</p>
 
-    <a class="cta" href="#order">DAPATKAN AKSES SEKARANG</a>
-    <p><small>⏰ Deadline 23:59</small></p>
+  <div style="text-align:center">
+    <a href="#order" class="btn">🔥 Dapatkan Akses Sekarang</a>
   </div>
+</div>
 </section>
 
-<!-- MASALAH -->
-<section style="background:#eef2ff;">
-  <div class="container">
-    <h2>Mau mulai jualan digital,<br>tapi realitanya gini?</h2>
-
-    <div class="box">
-      ❌ Bingung mulai dari mana<br>
-      ❌ Bikin produk sendiri makan waktu & tenaga<br>
-      ❌ Produk susah laku<br>
-      ❌ Takut salah lisensi & kena take down<br>
-      ❌ Modal habis, hasil zonk
-    </div>
-
-    <p class="center">
-      Sementara kompetitor terus testing produk dan ambil peluang.
-    </p>
-  </div>
-</section>
-
-<!-- SOLUSI -->
 <section>
-  <div class="container">
-    <h2>Ini Dia Solusi Praktisnya 😍</h2>
-
-    <div class="box">
-      <p><b>UnlockSkill Digital License Masterkit</b></p>
-      <ul>
-        <li>Katalog produk raksasa</li>
-        <li>Bisa rebrand & dijual ulang</li>
-        <li>Lisensi resmi & aman</li>
-        <li>Produk langsung siap jual</li>
-      </ul>
-    </div>
-  </div>
+<div class="container card">
+<h2>Apakah Kamu Sedang Mengalami Ini?</h2>
+<ul>
+<li>Susah cari kerja & peluang makin sempit</li>
+<li>Bingung mau mulai usaha dari mana</li>
+<li>Gak punya waktu bikin produk sendiri</li>
+<li>Pengen penghasilan tambahan dari HP</li>
+<li>Modal terbatas tapi ingin peluang besar</li>
+</ul>
+<p><b>Kamu tidak sendirian.</b><br>Dan ini solusinya.</p>
+</div>
 </section>
 
-<!-- APA YANG DIDAPAT -->
-<section style="background:#eef2ff;">
-  <div class="container">
-    <h2>Apa Saja yang Kamu Dapatkan?</h2>
-
-    <div class="box">
-      ✅ 8JT+ Produk Digital PLR & MRR<br>
-      ✅ Ribuan niche siap pakai<br>
-      ✅ Ebook, template, desain, software<br>
-      ✅ Update seumur hidup
-    </div>
-  </div>
-</section>
-
-<!-- CARA KERJA -->
 <section>
-  <div class="container">
-    <h2>Cara Kerja</h2>
+<div class="container card">
+<h2>Isi Paket Unlock Skill</h2>
 
-    <div class="box">
-      <b>Opsi 1 – Pribadi</b><br>
-      Beli → Download → Pilih produk → Pakai sendiri
-    </div>
+<div class="mockup">
+  <div class="box">Ebook</div>
+  <div class="box">Template</div>
+  <div class="box">Course</div>
+  <div class="box">Software</div>
+</div>
 
-    <div class="box">
-      <b>Opsi 2 – Jualan</b><br>
-      Beli → Download → Upload → Promosi → Terima uang
-    </div>
-  </div>
+<ul>
+<li>PLR / MRR — bebas dijual ulang</li>
+<li>Marketing kit siap pakai</li>
+<li>Panduan dari nol sampai cuan</li>
+<li>Update produk GRATIS</li>
+</ul>
+</div>
 </section>
 
-<!-- HARGA -->
-<section id="order" style="background:#fff7ed;">
-  <div class="container center">
-    <h2>Penawaran Spesial 🔥</h2>
-
-    <p><del>Rp 899.000</del></p>
-    <div class="price">Rp 99.000</div>
-
-    <p>1x bayar • Akses seumur hidup</p>
-
-    <a class="cta" href="https://wa.me/6289514124122">
-      DAPATKAN AKSES SEKARANG
-    </a>
-
-    <p><small>⚠️ Harga naik setelah deadline</small></p>
-  </div>
-</section>
-
-<!-- TESTIMONI -->
 <section>
-  <div class="container">
-    <h2>Testimoni Pengguna</h2>
+<div class="container card">
+<h2>Harga Promo Spesial</h2>
+<p class="price-old">Rp 979.000</p>
+<p class="price-new">Rp 89.000</p>
 
-    <div class="box">
-      “Baru kali ini nemu bundle produk digital sebesar ini.
-      Tinggal upload dan langsung jalan.”
-    </div>
-  </div>
+<h3>Promo Berakhir Dalam:</h3>
+<div class="timer">
+  <div class="time-box"><span id="min">30</span><br>Menit</div>
+  <div class="time-box"><span id="sec">00</span><br>Detik</div>
+</div>
+
+<div style="text-align:center;margin-top:20px">
+  <a href="#order" class="btn">AMANKAN SEKARANG</a>
+</div>
+</div>
 </section>
 
-<!-- FAQ -->
-<section style="background:#eef2ff;">
-  <div class="container">
-    <h2>Pertanyaan Umum</h2>
+<section id="order">
+<div class="container card">
+<h2>Isi Form Pemesanan</h2>
 
-    <div class="box">
-      <b>Apakah cocok untuk pemula?</b><br>
-      Sangat cocok, dibimbing dari nol.
-    </div>
+<input type="text" placeholder="Nama Lengkap">
+<input type="text" placeholder="No WhatsApp">
+<input type="email" placeholder="Email Aktif">
 
-    <div class="box">
-      <b>Apakah legal dijual ulang?</b><br>
-      Ya, menggunakan lisensi PLR & MRR.
-    </div>
+<h3>Metode Pembayaran</h3>
+<div class="payment">
+<label><input type="radio"> BCA</label>
+<label><input type="radio"> BRI</label>
+<label><input type="radio"> DANA / OVO</label>
+<label><input type="radio"> QRIS</label>
+</div>
 
-    <div class="box">
-      <b>Jualnya di mana?</b><br>
-      WhatsApp, marketplace, media sosial.
-    </div>
-  </div>
+<div class="qr">
+<p>Scan QR Pembayaran</p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PAYMENT-UNLOCK-SKILL">
+</div>
+
+<div style="text-align:center;margin-top:20px">
+<button class="btn">Saya Siap Order</button>
+</div>
+
+</div>
 </section>
 
-<footer>
-  <p>© 2026 UnlockSkill</p>
-</footer>
+<script>
+let duration = 30 * 60;
+let end = localStorage.getItem("promo_end");
+
+if(!end){
+  end = Date.now() + duration*1000;
+  localStorage.setItem("promo_end", end);
+}
+
+function updateTimer(){
+  let now = Date.now();
+  let diff = Math.floor((end - now)/1000);
+
+  if(diff <= 0){
+    localStorage.removeItem("promo_end");
+    location.reload();
+    return;
+  }
+
+  let m = Math.floor(diff/60);
+  let s = diff % 60;
+
+  document.getElementById("min").innerText = m;
+  document.getElementById("sec").innerText = s.toString().padStart(2,"0");
+}
+
+setInterval(updateTimer,1000);
+updateTimer();
+</script>
 
 </body>
 </html>
