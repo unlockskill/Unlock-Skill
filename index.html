@@ -294,12 +294,10 @@ function processOrder(){
     return;
   }
 
-  // simpan data agar bisa dipakai di success.html
   localStorage.setItem("order_name", name);
   localStorage.setItem("order_email", email);
   localStorage.setItem("order_payment", pay);
 
-  // arahkan ke halaman sukses
   window.location.href = "success.html";
 }
 </script>
