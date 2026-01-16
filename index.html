@@ -250,7 +250,7 @@ footer{text-align:center;opacity:.7;padding:30px}
 <option value="qris">QRIS</option>
 </select>
 
-<button class="btn" onclick="processOrder()">🔐 AMANKAN AKSES & MULAI CUAN</button>
+<button class="btn" onclick="processOrder()">🔐 AMBIL AKSES & MULAI CUAN</button>
 
 <div id="qrBox">
 <h3>Scan QR Pembayaran</h3>
@@ -285,19 +285,21 @@ setInterval(()=>{
 
 /* ORDER */
 function processOrder(){
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const pay = document.getElementById("payment").value;
 
-  if(!name || !email || !pay){
-    alert("Lengkapi data & pilih metode pembayaran");
+  // Ambil metode pembayaran yang dipilih
+  const payment = document.querySelector('input[name="payment"]:checked');
+
+  if(!payment){
+    alert("Silakan pilih metode pembayaran terlebih dahulu");
     return;
   }
 
-  const qr = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PAY-"+pay.toUpperCase()+"-UNLOCKSKILL";
-  document.getElementById("qrImg").src = qr;
-  document.getElementById("qrBox").style.display = "block";
-  document.getElementById("qrBox").scrollIntoView({behavior:"smooth"});
+  // Ambil value metode pembayaran
+  const paymentMethod = payment.value;
+
+  // Arahkan ke halaman sukses
+  window.location.href =
+    "success.html?pay=" + encodeURIComponent(paymentMethod);
 }
 </script>
 
