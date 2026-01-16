@@ -11,30 +11,42 @@
   --accent:#00ff99;
   --danger:#ff3d00;
 }
+
 *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+
 body{
   margin:0;
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:#fff;
 }
+
 section{padding:60px 20px}
 .container{max-width:900px;margin:auto}
+
 h1,h2,h3{text-align:center}
 p{text-align:center;line-height:1.6}
 
 /* HERO */
-.hero{background:rgba(0,0,0,.45);padding:50px;border-radius:20px}
-.logo{font-size:36px;font-weight:900;text-align:center}
+.hero{
+  background:rgba(0,0,0,.45);
+  padding:50px 25px;
+  border-radius:20px;
+}
+.logo{
+  text-align:center;
+  font-size:36px;
+  font-weight:900;
+}
 .logo span{color:var(--accent)}
-.tagline{text-align:center;margin-bottom:25px}
+.tagline{text-align:center;opacity:.9;margin-bottom:25px}
 
 /* BUTTON */
 .btn{
   width:100%;
   padding:16px;
+  background:var(--danger);
   border:none;
   border-radius:30px;
-  background:var(--danger);
   color:#fff;
   font-size:18px;
   font-weight:bold;
@@ -52,25 +64,52 @@ p{text-align:center;line-height:1.6}
 
 /* LIST */
 ul{list-style:none;padding:0}
-li::before{content:"✅ "}
 li{margin:8px 0}
+li::before{content:"✅ "}
 
 /* STEP */
 .steps{display:grid;gap:20px}
-.step-box{background:rgba(255,255,255,.1);padding:20px;border-radius:16px}
+.step-box{
+  background:rgba(255,255,255,.1);
+  padding:20px;
+  border-radius:16px;
+}
 
 /* MOCKUP */
-.mockup{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.mockup{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 .mockup-box{
-  width:150px;height:200px;
+  width:150px;
+  height:200px;
   background:linear-gradient(135deg,var(--primary),var(--accent));
   border-radius:14px;
-  display:flex;align-items:center;justify-content:center;font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
 }
 
 /* PRICE */
-.old-price{text-decoration:line-through;opacity:.6}
-.price{font-size:42px;color:var(--accent);font-weight:900}
+.price-old{text-decoration:line-through;opacity:.6;text-align:center}
+.price-new{font-size:42px;color:var(--accent);text-align:center;font-weight:900}
+
+/* TIMER */
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+.time-box{
+  background:#000;
+  padding:12px 18px;
+  border-radius:12px;
+  min-width:80px;
+  text-align:center;
+}
 
 /* FORM */
 input,select{
@@ -82,8 +121,8 @@ input,select{
 }
 
 /* QR */
-#paymentBox{display:none;text-align:center;margin-top:25px}
-#paymentBox img{width:220px}
+#qrBox{display:none;text-align:center;margin-top:25px}
+#qrBox img{width:220px}
 
 footer{text-align:center;opacity:.7;padding:30px}
 </style>
@@ -100,35 +139,36 @@ footer{text-align:center;opacity:.7;padding:30px}
 <p>Cocok untuk pemula, UMKM & content creator</p>
 
 <button class="btn" onclick="scrollToOrder()">🔥 Dapatkan Akses Sekarang</button>
+
+<p style="margin-top:20px">Promo Berakhir Dalam</p>
+<div class="timer">
+  <div class="time-box"><span id="min">30</span><br>Menit</div>
+  <div class="time-box"><span id="sec">00</span><br>Detik</div>
+</div>
 </div>
 </section>
 
-<section>
-<div class="container card">
+<section class="container card">
 <h2>Apakah Kamu Mengalami Ini?</h2>
 <ul>
-<li>Ingin cuan tapi tak punya produk</li>
+<li>Ingin cuan tapi tidak punya produk</li>
 <li>Bingung mulai bisnis online</li>
 <li>Modal terbatas</li>
 <li>Takut gagal</li>
 </ul>
-</div>
 </section>
 
-<section>
-<div class="container card">
+<section class="container card">
 <h2>Solusi Unlock Skill</h2>
 <ul>
 <li>Ribuan produk digital siap pakai</li>
-<li>Bisa pribadi atau dijual ulang</li>
+<li>Bisa dipakai pribadi / dijual ulang</li>
 <li>Boleh pakai brand sendiri</li>
 <li>Akses seumur hidup</li>
 </ul>
-</div>
 </section>
 
-<section>
-<div class="container card">
+<section class="container card">
 <h2>Cara Kerja</h2>
 <div class="steps">
 <div class="step-box">
@@ -140,11 +180,9 @@ footer{text-align:center;opacity:.7;padding:30px}
 <p>Beli → Download → Upload → Promosi → Terima Uang</p>
 </div>
 </div>
-</div>
 </section>
 
-<section>
-<div class="container card">
+<section class="container card">
 <h2>Isi Paket</h2>
 <div class="mockup">
 <div class="mockup-box">Ebook</div>
@@ -152,11 +190,9 @@ footer{text-align:center;opacity:.7;padding:30px}
 <div class="mockup-box">Course</div>
 <div class="mockup-box">Software</div>
 </div>
-</div>
 </section>
 
-<section id="order">
-<div class="container card">
+<section id="order" class="container card">
 <h2>Form Pemesanan</h2>
 
 <input id="name" placeholder="Nama Lengkap">
@@ -174,36 +210,53 @@ footer{text-align:center;opacity:.7;padding:30px}
 
 <button class="btn" onclick="processOrder()">🔐 AMANKAN AKSES & MULAI CUAN</button>
 
-<div id="paymentBox">
+<div id="qrBox">
 <h3>Scan QR Pembayaran</h3>
-<img id="qrImage">
-<p>Akses akan dikirim setelah pembayaran</p>
-</div>
-
+<img id="qrImg">
+<p>Akses dikirim setelah pembayaran</p>
 </div>
 </section>
 
 <footer>© 2026 Unlock Skill</footer>
 
 <script>
+/* SCROLL */
 function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
+/* TIMER 30 MENIT */
+let end = localStorage.getItem("promo_end");
+if(!end){
+  end = Date.now() + 30*60*1000;
+  localStorage.setItem("promo_end", end);
+}
+
+setInterval(()=>{
+  let diff = Math.floor((end - Date.now())/1000);
+  if(diff <= 0){
+    localStorage.removeItem("promo_end");
+    location.reload();
+  }
+  document.getElementById("min").innerText = Math.floor(diff/60);
+  document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
+},1000);
+
+/* ORDER */
 function processOrder(){
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const pay = document.getElementById("payment").value;
 
   if(!name || !email || !pay){
-    alert("Lengkapi data terlebih dahulu");
+    alert("Lengkapi data & pilih metode pembayaran");
     return;
   }
 
   const qr = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PAY-"+pay.toUpperCase()+"-UNLOCKSKILL";
-  document.getElementById("qrImage").src = qr;
-  document.getElementById("paymentBox").style.display = "block";
-  document.getElementById("paymentBox").scrollIntoView({behavior:"smooth"});
+  document.getElementById("qrImg").src = qr;
+  document.getElementById("qrBox").style.display = "block";
+  document.getElementById("qrBox").scrollIntoView({behavior:"smooth"});
 }
 </script>
 
