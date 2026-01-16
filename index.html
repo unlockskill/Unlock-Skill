@@ -11,52 +11,31 @@
   --accent:#00ff99;
   --danger:#ff3d00;
 }
-
 *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-
 body{
   margin:0;
-  background:
-    linear-gradient(135deg,#0f2027,#203a43,#2c5364),
-    url("https://www.transparenttextures.com/patterns/cubes.png");
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:#fff;
 }
-
 section{padding:60px 20px}
 .container{max-width:900px;margin:auto}
-
-h1,h2,h3{text-align:center;margin-bottom:15px}
+h1,h2,h3{text-align:center}
 p{text-align:center;line-height:1.6}
 
 /* HERO */
-.hero{
-  background:rgba(0,0,0,.45);
-  border-radius:20px;
-  padding:50px 25px;
-}
-
-.logo{
-  text-align:center;
-  font-size:36px;
-  font-weight:900;
-}
+.hero{background:rgba(0,0,0,.45);padding:50px;border-radius:20px}
+.logo{font-size:36px;font-weight:900;text-align:center}
 .logo span{color:var(--accent)}
-
-.tagline{
-  text-align:center;
-  opacity:.9;
-  margin-bottom:30px;
-}
+.tagline{text-align:center;margin-bottom:25px}
 
 /* BUTTON */
 .btn{
-  display:block;
   width:100%;
   padding:16px;
-  background:var(--danger);
-  color:#fff;
   border:none;
   border-radius:30px;
+  background:var(--danger);
+  color:#fff;
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
@@ -73,51 +52,25 @@ p{text-align:center;line-height:1.6}
 
 /* LIST */
 ul{list-style:none;padding:0}
-li{margin:10px 0}
-li::before{content:"✅ ";}
+li::before{content:"✅ "}
+li{margin:8px 0}
 
 /* STEP */
-.steps{
-  display:grid;
-  gap:20px;
-}
-.step-box{
-  background:rgba(255,255,255,.1);
-  padding:20px;
-  border-radius:16px;
-}
+.steps{display:grid;gap:20px}
+.step-box{background:rgba(255,255,255,.1);padding:20px;border-radius:16px}
 
 /* MOCKUP */
-.mockup{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+.mockup{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
 .mockup-box{
-  width:150px;
-  height:200px;
+  width:150px;height:200px;
   background:linear-gradient(135deg,var(--primary),var(--accent));
   border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:bold;
+  display:flex;align-items:center;justify-content:center;font-weight:bold;
 }
 
 /* PRICE */
-.old-price{text-decoration:line-through;opacity:.6;text-align:center}
-.price{font-size:42px;color:var(--accent);text-align:center;font-weight:900}
-
-/* TIMER */
-.timer{display:flex;justify-content:center;gap:12px}
-.time-box{
-  background:#000;
-  padding:12px 18px;
-  border-radius:12px;
-  min-width:80px;
-  text-align:center;
-}
+.old-price{text-decoration:line-through;opacity:.6}
+.price{font-size:42px;color:var(--accent);font-weight:900}
 
 /* FORM */
 input,select{
@@ -126,171 +79,83 @@ input,select{
   border-radius:10px;
   border:none;
   margin-bottom:12px;
-  font-size:16px;
 }
 
 /* QR */
-.qr-box{display:none;text-align:center;margin-top:20px}
-.qr-box img{width:220px}
+#paymentBox{display:none;text-align:center;margin-top:25px}
+#paymentBox img{width:220px}
 
-/* FOOTER */
 footer{text-align:center;opacity:.7;padding:30px}
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section>
 <div class="container hero">
 <div class="logo">UNLOCK <span>SKILL</span></div>
 <div class="tagline">Upgrade Skill • Bangun Aset Digital • Hasilkan Cuan</div>
 
 <h1>1x Akses = Jutaan Produk Digital<br>Siap Pakai & Siap Jual</h1>
-<p>Cocok untuk pemula, UMKM, content creator, bahkan tanpa pengalaman.</p>
+<p>Cocok untuk pemula, UMKM & content creator</p>
 
 <button class="btn" onclick="scrollToOrder()">🔥 Dapatkan Akses Sekarang</button>
-
-<div style="margin-top:20px">
-<p style="text-align:center">Promo Berakhir Dalam</p>
-<div class="timer">
-<div class="time-box"><span id="min">30</span><br>Menit</div>
-<div class="time-box"><span id="sec">00</span><br>Detik</div>
-</div>
-</div>
 </div>
 </section>
 
-<!-- PROBLEM -->
 <section>
 <div class="container card">
-<h2>Apakah Kamu Sedang Mengalami Ini?</h2>
+<h2>Apakah Kamu Mengalami Ini?</h2>
 <ul>
-<li>Bingung mau mulai usaha dari mana</li>
-<li>Ingin cuan dari internet tapi tak punya produk</li>
-<li>Takut rugi & modal terbatas</li>
-<li>Sudah coba tapi selalu gagal</li>
-<li>Ingin penghasilan tambahan dari HP</li>
+<li>Ingin cuan tapi tak punya produk</li>
+<li>Bingung mulai bisnis online</li>
+<li>Modal terbatas</li>
+<li>Takut gagal</li>
 </ul>
-<p><b>Kamu tidak sendirian. Dan ini solusinya.</b></p>
 </div>
 </section>
 
-<!-- SOLUTION -->
 <section>
 <div class="container card">
 <h2>Solusi Unlock Skill</h2>
 <ul>
 <li>Ribuan produk digital siap pakai</li>
-<li>Bisa untuk keperluan pribadi atau dijual ulang</li>
+<li>Bisa pribadi atau dijual ulang</li>
 <li>Boleh pakai brand sendiri</li>
-<li>Tanpa stok, tanpa packing</li>
-<li>Akses & update seumur hidup</li>
+<li>Akses seumur hidup</li>
 </ul>
 </div>
 </section>
 
-<!-- CARA KERJA -->
 <section>
 <div class="container card">
-<h2>Cara Kerja Unlock Skill</h2>
-
+<h2>Cara Kerja</h2>
 <div class="steps">
 <div class="step-box">
-<h3>🎯 Opsi Pribadi</h3>
-<p>1️⃣ Beli → 2️⃣ Download → 3️⃣ Pilih Produk → 4️⃣ Gunakan</p>
+<h3>🎯 Pribadi</h3>
+<p>Beli → Download → Gunakan</p>
 </div>
-
 <div class="step-box">
-<h3>💰 Opsi Cari Uang</h3>
-<p>1️⃣ Beli → 2️⃣ Download → 3️⃣ Upload → 4️⃣ Promosi → 5️⃣ Terima Uang</p>
+<h3>💰 Jual Ulang</h3>
+<p>Beli → Download → Upload → Promosi → Terima Uang</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- ISI PAKET -->
 <section>
 <div class="container card">
-<h2>Isi Paket Unlock Skill</h2>
-
+<h2>Isi Paket</h2>
 <div class="mockup">
 <div class="mockup-box">Ebook</div>
 <div class="mockup-box">Template</div>
 <div class="mockup-box">Course</div>
 <div class="mockup-box">Software</div>
 </div>
-
-<ul>
-<li>PLR / MRR — bebas jual ulang</li>
-<li>Marketing kit siap pakai</li>
-<li>Panduan dari nol sampai cuan</li>
-<li>Update produk GRATIS</li>
-</ul>
 </div>
 </section>
 
-  <!-- TESTIMONI -->
-<section>
-<div class="container card">
-<h2>Apa Kata Mereka?</h2>
-
-<p><b>Rina – Ibu Rumah Tangga</b><br>
-“Awalnya ragu, tapi setelah pakai Unlock Skill saya bisa jual produk digital sendiri dari HP.”</p>
-
-<p><b>Andi – Karyawan</b><br>
-“Satu kali beli, produknya banyak banget. Sekarang bisa buat penghasilan sampingan.”</p>
-
-<p><b>Dewi – UMKM</b><br>
-“Template & ebook-nya sangat membantu bisnis saya. Worth it banget.”</p>
-
-</div>
-</section>
-
-  <!-- FAQ -->
-  <section>
-<div class="container card">
-<h2>Pertanyaan yang Sering Ditanyakan</h2>
-
-<p><b>❓ Apakah ini aman?</b><br>
-Ya. Ini produk digital legal dengan lisensi pakai & jual ulang.</p>
-
-<p><b>❓ Sekali bayar atau bulanan?</b><br>
-Sekali bayar. Akses & update seumur hidup.</p>
-
-<p><b>❓ Apakah pemula bisa?</b><br>
-Sangat bisa. Semua disertai panduan.</p>
-
-<p><b>❓ Dapat apa saja?</b><br>
-Ribuan ebook, template, course, software & marketing kit.</p>
-
-</div>
-</section>
-
-<!-- PRICE -->
-<section>
-<div class="container card">
-<h2>Harga Promo Spesial</h2>
-<p class="old-price">Rp 699.000</p>
-<p class="price">Rp 89.000</p>
-<button class="btn" onclick="scrollToOrder()">🚀 Amankan Harga Promo</button>
-</div>
-</section>
-
-<!-- ORDER -->
 <section id="order">
-  <div id="paymentBox" style="display:none;margin-top:30px;text-align:center">
-  <h3>🔔 Langkah Terakhir: Lakukan Pembayaran</h3>
-  <p>Silakan scan QR di bawah sesuai metode pembayaran yang kamu pilih.</p>
-
-  <img id="qrImage"
-       src=""
-       style="width:220px;border:1px solid #ddd;padding:10px;border-radius:12px">
-
-  <p style="margin-top:15px;font-weight:bold;color:#d63031">
-    Setelah pembayaran, akses akan dikirim via WhatsApp & Email.
-  </p>
-</div>
 <div class="container card">
 <h2>Form Pemesanan</h2>
 
@@ -303,113 +168,44 @@ Ribuan ebook, template, course, software & marketing kit.</p>
 <option value="bri">Bank BRI</option>
 <option value="mandiri">Bank Mandiri</option>
 <option value="bni">Bank BNI</option>
-<option value="ewallet">DANA / OVO</option>
+<option value="dana">DANA / OVO</option>
 <option value="qris">QRIS</option>
 </select>
 
-<button class="btn" onclick="processOrder()">
-  🔐 AMANKAN AKSES & MULAI CUAN
-</button>
+<button class="btn" onclick="processOrder()">🔐 AMANKAN AKSES & MULAI CUAN</button>
 
-<div class="qr-box" id="qrBox">
-<h3>Scan QR untuk Pembayaran</h3>
-<img id="qrImg">
-<p>Setelah bayar, akses dikirim via email.</p>
+<div id="paymentBox">
+<h3>Scan QR Pembayaran</h3>
+<img id="qrImage">
+<p>Akses akan dikirim setelah pembayaran</p>
 </div>
+
 </div>
 </section>
 
 <footer>© 2026 Unlock Skill</footer>
 
 <script>
-let end = localStorage.getItem("promo");
-if(!end){
-  end = Date.now()+30*60*1000;
-  localStorage.setItem("promo",end);
-}
-
-setInterval(()=>{
-  let d=Math.floor((end-Date.now())/1000);
-  if(d<=0){localStorage.removeItem("promo");location.reload()}
-  document.getElementById("min").innerText=Math.floor(d/60);
-  document.getElementById("sec").innerText=(d%60).toString().padStart(2,"0");
-},1000);
-
 function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-<script>
 function processOrder(){
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let payment = document.getElementById("payment").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const pay = document.getElementById("payment").value;
 
-  if(!name || !email || !payment){
-    alert("Lengkapi data & pilih metode pembayaran");
+  if(!name || !email || !pay){
+    alert("Lengkapi data terlebih dahulu");
     return;
   }
 
-  let message =
-`Halo Admin Unlock Skill 👋
-
-Saya ingin order *Unlock Skill*.
-
-Nama: ${name}
-Email: ${email}
-Metode Pembayaran: ${payment.toUpperCase()}
-Harga: Rp 89.000
-
-Mohon info pembayaran 🙏`;
-
-  let wa = "https://wa.me/6289514124122?text=" + encodeURIComponent(message);
-  window.open(wa,"_blank");
-}
-</script>
-  <script>
-function processOrder(){
-
-  const name   = document.getElementById("name").value.trim();
-  const phone  = document.getElementById("phone").value.trim();
-  const email  = document.getElementById("email").value.trim();
-  const pay    = document.getElementById("payment").value;
-
-  if(!name || !phone || !email || !pay){
-    alert("⚠️ Mohon lengkapi semua data terlebih dahulu.");
-    return;
-  }
-
-  let qrData = "";
-
-  switch(pay){
-    case "bca":
-      qrData = "PAYMENT-BCA-UNLOCKSKILL";
-      break;
-    case "bri":
-      qrData = "PAYMENT-BRI-UNLOCKSKILL";
-      break;
-    case "mandiri":
-      qrData = "PAYMENT-MANDIRI-UNLOCKSKILL";
-      break;
-    case "bni":
-      qrData = "PAYMENT-BNI-UNLOCKSKILL";
-      break;
-    case "dana":
-      qrData = "PAYMENT-DANA-OVO-UNLOCKSKILL";
-      break;
-    case "qris":
-      qrData = "PAYMENT-QRIS-UNLOCKSKILL";
-      break;
-  }
-
-  document.getElementById("qrImage").src =
-    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + qrData;
-
+  const qr = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=PAY-"+pay.toUpperCase()+"-UNLOCKSKILL";
+  document.getElementById("qrImage").src = qr;
   document.getElementById("paymentBox").style.display = "block";
-
-  document.getElementById("paymentBox")
-    .scrollIntoView({behavior:"smooth"});
+  document.getElementById("paymentBox").scrollIntoView({behavior:"smooth"});
 }
 </script>
+
 </body>
 </html>
