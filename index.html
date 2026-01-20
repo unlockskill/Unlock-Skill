@@ -214,6 +214,53 @@ footer{text-align:center;opacity:.7;padding:30px}
   .mockup-box img{
     width:100px;
   }
+  
+    /* ===== FIX MOCKUP CARD ===== */
+.mockup{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap:20px;
+  justify-items:center;
+}
+
+.mockup-box{
+  width:160px;
+  height:220px;
+  background:linear-gradient(135deg,#6c5ce7,#00ff99);
+  border-radius:18px;
+  padding:18px 12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+/* GAMBAR */
+.mockup-box img{
+  width:110px;
+  height:auto;
+  object-fit:contain;
+  margin-bottom:12px;
+}
+
+/* TEKS */
+.mockup-box p{
+  margin:0;
+  font-weight:600;
+  font-size:15px;
+}
+
+/* MOBILE */
+@media (max-width:600px){
+  .mockup-box{
+    width:100%;
+    max-width:160px;
+    height:210px;
+  }
+
+  .mockup-box img{
+    width:95px;
+  }
 }
 </style>
 </head>
@@ -284,19 +331,41 @@ footer{text-align:center;opacity:.7;padding:30px}
 <div class="mockup">
 
   <div class="mockup-box">
-    <img src="assets/img/ebook.png" alt="Ebook">
-    <span>Ebook</span>
+    <img src="images/ebook.png">
+    <p>Ebook</p>
   </div>
 
   <div class="mockup-box">
-    <img src="assets/img/template.png" alt="Template">
-    <span>Template</span>
+    <img src="images/template.png">
+    <p>Template</p>
   </div>
 
   <div class="mockup-box">
-    <img src="assets/img/course.png" alt="Course">
-    <span>Course</span>
+    <img src="images/course.png">
+    <p>Course</p>
   </div>
+
+  <div class="mockup-box">
+    <img src="images/software.png">
+    <p>Software</p>
+  </div>
+
+  <div class="mockup-box">
+    <img src="images/audio.png">
+    <p>Audio</p>
+  </div>
+
+  <div class="mockup-box">
+    <img src="images/video.png">
+    <p>Video</p>
+  </div>
+
+  <div class="mockup-box">
+    <img src="images/grafis.png">
+    <p>Grafis</p>
+  </div>
+
+</div>
 
   <div class="mockup-box">
     <img src="assets/img/software.png" alt="Software">
