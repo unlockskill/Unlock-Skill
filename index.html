@@ -83,13 +83,15 @@ li::before{content:"✅ "}
   flex-wrap:wrap;
 }
 .mockup-box{
-  width:150px;
-  height:200px;
+  width:180px;
+  height:240px;
   background:linear-gradient(135deg,var(--primary),var(--accent));
-  border-radius:14px;
+  border-radius:18px;
   display:flex;
+  flex-direction:column;
   align-items:center;
   justify-content:center;
+  gap:14px;
   font-weight:bold;
 }
   /* === TAMBAHAN UNTUK GAMBAR PRODUK === */
@@ -100,15 +102,17 @@ li::before{content:"✅ "}
 }
 
 .mockup-box img{
-  width:100px;
-  height:auto;
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  width:120px;
+  max-height:120px;
+  object-fit:contain;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
 .mockup-box span{
-  font-size:14px;
+  font-size:15px;
   font-weight:600;
+  color:#fff;
 }
 
 /* PRICE */
@@ -200,6 +204,17 @@ input,select{
 .steel{background:#e5e7eb}
 
 footer{text-align:center;opacity:.7;padding:30px}
+  
+  @media (max-width: 600px){
+  .mockup-box{
+    width:150px;
+    height:220px;
+  }
+
+  .mockup-box img{
+    width:100px;
+  }
+}
 </style>
 </head>
 
