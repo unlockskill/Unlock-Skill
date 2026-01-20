@@ -32,11 +32,7 @@ p{text-align:center;line-height:1.6}
   padding:50px 25px;
   border-radius:20px;
 }
-.logo{
-  text-align:center;
-  font-size:36px;
-  font-weight:900;
-}
+.logo{text-align:center;font-size:36px;font-weight:900}
 .logo span{color:var(--accent)}
 .tagline{text-align:center;opacity:.9;margin-bottom:25px}
 
@@ -67,7 +63,7 @@ ul{list-style:none;padding:0}
 li{margin:8px 0}
 li::before{content:"✅ "}
 
-/* STEP */
+/* STEPS */
 .steps{display:grid;gap:20px}
 .step-box{
   background:rgba(255,255,255,.1);
@@ -75,44 +71,38 @@ li::before{content:"✅ "}
   border-radius:16px;
 }
 
-/* MOCKUP */
+/* ===== MOCKUP PRODUK (BERSIH & STABIL) ===== */
 .mockup{
-  display:flex;
-  gap:15px;
-  justify-content:center;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap:24px;
+  justify-items:center;
+  margin:30px 0;
 }
+
 .mockup-box{
-  width:180px;
-  height:240px;
+  width:160px;
+  height:230px;
   background:linear-gradient(135deg,var(--primary),var(--accent));
-  border-radius:18px;
+  border-radius:20px;
+  padding:18px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:14px;
-  font-weight:bold;
-}
-  /* === TAMBAHAN UNTUK GAMBAR PRODUK === */
-
-.mockup-box{
-  flex-direction:column;
-  gap:10px;
 }
 
 .mockup-box img{
-  width:120px;
-  max-height:120px;
+  width:110px;
+  height:110px;
   object-fit:contain;
-  border-radius:16px;
-  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  margin-bottom:12px;
 }
 
-.mockup-box span{
+.mockup-box p{
+  margin:0;
   font-size:15px;
   font-weight:600;
-  color:#fff;
 }
 
 /* PRICE */
@@ -120,11 +110,7 @@ li::before{content:"✅ "}
 .price-new{font-size:42px;color:var(--accent);text-align:center;font-weight:900}
 
 /* TIMER */
-.timer{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-}
+.timer{display:flex;justify-content:center;gap:12px}
 .time-box{
   background:#000;
   padding:12px 18px;
@@ -142,126 +128,33 @@ input,select{
   margin-bottom:12px;
 }
 
-/* QR */
-#qrBox{display:none;text-align:center;margin-top:25px}
-#qrBox img{width:220px}
-
-/* ===== BUNDLE SECTION ===== */
-.bundle-section{text-align:center}
-.highlight{
-  background:#e9d5ff;
-  color:#000;
-  padding:3px 6px;
-  border-radius:6px;
-}
-.bundle-desc{opacity:.9;margin-bottom:30px}
-.bundle-title{font-size:22px;font-weight:700;margin-bottom:10px}
-.bundle-sub{opacity:.9;margin-bottom:30px}
+/* BUNDLE */
+.highlight{background:#e9d5ff;color:#000;padding:3px 6px;border-radius:6px}
 .kisi-title{
   display:inline-block;
-  margin-bottom:20px;
+  margin:20px 0;
   font-weight:600;
   background:#e9d5ff;
   color:#000;
   padding:6px 12px;
   border-radius:8px;
 }
-.tag-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-}
+.tag-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .tag{
   padding:6px 14px;
   border-radius:999px;
   font-size:13px;
   font-weight:500;
+  background:#e5e7eb;
   color:#000;
 }
 
-/* pastel */
-.green{background:#d1fae5}
-.pink{background:#fce7f3}
-.purple{background:#ede9fe}
-.orange{background:#ffedd5}
-.blue{background:#dbeafe}
-.cyan{background:#cffafe}
-.teal{background:#ccfbf1}
-.gray{background:#f3f4f6}
-.yellow{background:#fef9c3}
-.mint{background:#dcfce7}
-.peach{background:#ffe4e6}
-.sky{background:#e0f2fe}
-.lime{background:#ecfccb}
-.violet{background:#f5f3ff}
-.sand{background:#fef3c7}
-.rose{background:#ffe4e6}
-.brown{background:#fef2f2}
-.lavender{background:#f3e8ff}
-.beige{background:#fafaf9}
-.coral{background:#fee2e2}
-.steel{background:#e5e7eb}
+/* MOBILE */
+@media(max-width:600px){
+  .mockup{grid-template-columns:repeat(2,1fr)}
+}
 
 footer{text-align:center;opacity:.7;padding:30px}
-  
-  @media (max-width: 600px){
-  .mockup-box{
-    width:150px;
-    height:220px;
-  }
-
-  .mockup-box img{
-    width:100px;
-  }
-  
-    /* ===== FIX MOCKUP CARD ===== */
-.mockup{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap:20px;
-  justify-items:center;
-}
-
-.mockup-box{
-  width:160px;
-  height:220px;
-  background:linear-gradient(135deg,#6c5ce7,#00ff99);
-  border-radius:18px;
-  padding:18px 12px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-/* GAMBAR */
-.mockup-box img{
-  width:110px;
-  height:auto;
-  object-fit:contain;
-  margin-bottom:12px;
-}
-
-/* TEKS */
-.mockup-box p{
-  margin:0;
-  font-weight:600;
-  font-size:15px;
-}
-
-/* MOBILE */
-@media (max-width:600px){
-  .mockup-box{
-    width:100%;
-    max-width:160px;
-    height:210px;
-  }
-
-  .mockup-box img{
-    width:95px;
-  }
-}
 </style>
 </head>
 
@@ -314,80 +207,25 @@ footer{text-align:center;opacity:.7;padding:30px}
 <section class="container card">
 <h2>Cara Kerja Unlock Skill</h2>
 <div class="steps">
-<div class="step-box">
-<h3>🎯 Untuk Pribadi</h3>
-<p>Beli → Download → Gunakan</p>
-</div>
-<div class="step-box">
-<h3>💰 Untuk Cari Uang</h3>
-<p>Beli → Download → Upload → Promosi → Terima Uang</p>
-</div>
+<div class="step-box"><h3>🎯 Pribadi</h3><p>Beli → Download → Gunakan</p></div>
+<div class="step-box"><h3>💰 Cari Uang</h3><p>Beli → Download → Upload → Promosi → Terima Uang</p></div>
 </div>
 </section>
 
 <!-- ISI PAKET -->
 <section class="container card">
 <h2>Isi Paket Unlock Skill</h2>
+
 <div class="mockup">
-
-  <div class="mockup-box">
-    <img src="images/ebook.png">
-    <p>Ebook</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/template.png">
-    <p>Template</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/course.png">
-    <p>Course</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/software.png">
-    <p>Software</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/audio.png">
-    <p>Audio</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/video.png">
-    <p>Video</p>
-  </div>
-
-  <div class="mockup-box">
-    <img src="images/grafis.png">
-    <p>Grafis</p>
-  </div>
-
+  <div class="mockup-box"><img src="images/ebook.png"><p>Ebook</p></div>
+  <div class="mockup-box"><img src="images/template.png"><p>Template</p></div>
+  <div class="mockup-box"><img src="images/course.png"><p>Course</p></div>
+  <div class="mockup-box"><img src="images/software.png"><p>Software</p></div>
+  <div class="mockup-box"><img src="images/audio.png"><p>Audio</p></div>
+  <div class="mockup-box"><img src="images/video.png"><p>Video</p></div>
+  <div class="mockup-box"><img src="images/grafis.png"><p>Grafis</p></div>
 </div>
 
-  <div class="mockup-box">
-    <img src="assets/img/software.png" alt="Software">
-    <span>Software</span>
-  </div>
-
-  <div class="mockup-box">
-    <img src="assets/img/audio.png" alt="Audio">
-    <span>Audio</span>
-  </div>
-
-  <div class="mockup-box">
-    <img src="assets/img/video.png" alt="Video">
-    <span>Video</span>
-  </div>
-
-  <div class="mockup-box">
-    <img src="assets/img/grafis.png" alt="Grafis">
-    <span>Grafis</span>
-  </div>
-
-</div>
 <ul>
 <li>Ribuan aset digital siap pakai & jual</li>
 <li>Lisensi PLR / MRR</li>
@@ -396,56 +234,20 @@ footer{text-align:center;opacity:.7;padding:30px}
 </ul>
 </section>
 
-<!-- BUNDLE DETAIL -->
-<section class="container card bundle-section">
-<h2>Apa saja yang <span class="highlight">kamu</span> dapatkan? 🤔</h2>
-<p class="bundle-desc">
-Sekali beli, semua langsung kamu dapatkan dalam 1 paket lengkap.
-</p>
-
-<h3 class="bundle-title">
-1.8 Juta+ Produk Digital Lisensi Jual Kembali (PLR, MRR) ✅
-</h3>
-
-<p class="bundle-sub">
-E-book, template, software, kursus online, grafis, audio, video & aset siap jual.
-</p>
-
-<div class="kisi-title">Kisi-kisi produk 👇</div>
-
-<div class="tag-grid">
-<span class="tag green">Excel</span>
-<span class="tag pink">E-Course</span>
-<span class="tag purple">Premiere Pro</span>
-<span class="tag orange">Audio</span>
-<span class="tag blue">After Effects</span>
-<span class="tag cyan">Lightroom</span>
-<span class="tag teal">Photoshop</span>
-<span class="tag gray">Assets</span>
-<span class="tag yellow">Notion</span>
-<span class="tag mint">Elementor</span>
-<span class="tag peach">Templates</span>
-<span class="tag sky">Canva</span>
-<span class="tag violet">PowerPoint</span>
-<span class="tag coral">Mockups</span>
-<span class="tag steel">Prompts</span>
-</div>
-</section>
-
 <!-- TESTIMONI -->
 <section class="container card">
 <h2>Apa Kata Mereka?</h2>
-<p><b>Rina — Ibu Rumah Tangga</b><br>“Sekarang sudah bisa jual produk digital sendiri.”</p>
-<p><b>Andi — Karyawan</b><br>“Sekali beli, produknya banyak banget.”</p>
-<p><b>Dewi — UMKM</b><br>“Template & ebook sangat membantu bisnis saya.”</p>
+<p><b>Rina</b><br>“Sekarang bisa jual produk digital dari HP.”</p>
+<p><b>Andi</b><br>“Sekali beli, produknya banyak banget.”</p>
+<p><b>Dewi</b><br>“Template & ebook sangat membantu bisnis.”</p>
 </section>
 
 <!-- FAQ -->
 <section class="container card">
-<h2>Pertanyaan yang Sering Ditanyakan</h2>
-<p><b>❓ Legal?</b><br>Ya, lisensi PLR / MRR.</p>
-<p><b>❓ Sekali bayar?</b><br>Ya, akses seumur hidup.</p>
-<p><b>❓ Pemula bisa?</b><br>Sangat bisa.</p>
+<h2>FAQ</h2>
+<p><b>Legal?</b><br>Ya, PLR / MRR.</p>
+<p><b>Sekali bayar?</b><br>Ya, seumur hidup.</p>
+<p><b>Pemula?</b><br>Sangat bisa.</p>
 </section>
 
 <!-- PRICE -->
@@ -461,17 +263,11 @@ E-book, template, software, kursus online, grafis, audio, video & aset siap jual
 <h2>Form Pemesanan</h2>
 <input id="name" placeholder="Nama Lengkap">
 <input id="email" placeholder="Email Aktif">
-
 <select id="payment">
 <option value="">Pilih Metode Pembayaran</option>
-<option value="bca">Bank BCA</option>
-<option value="bri">Bank BRI</option>
-<option value="mandiri">Bank Mandiri</option>
-<option value="bni">Bank BNI</option>
-<option value="dana">DANA / OVO</option>
-<option value="qris">QRIS</option>
+<option>BCA</option><option>BRI</option><option>Mandiri</option>
+<option>BNI</option><option>DANA/OVO</option><option>QRIS</option>
 </select>
-
 <button class="btn" onclick="processOrder()">🔐 AMBIL AKSES & MULAI CUAN</button>
 </section>
 
@@ -482,30 +278,27 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-let end = localStorage.getItem("promo_end");
+let end=localStorage.getItem("promo_end");
 if(!end){
-  end = Date.now() + 30*60*1000;
-  localStorage.setItem("promo_end", end);
+  end=Date.now()+30*60*1000;
+  localStorage.setItem("promo_end",end);
 }
 
 setInterval(()=>{
-  let diff = Math.floor((end - Date.now())/1000);
-  document.getElementById("min").innerText = Math.floor(diff/60);
-  document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
+  let d=Math.floor((end-Date.now())/1000);
+  document.getElementById("min").innerText=Math.floor(d/60);
+  document.getElementById("sec").innerText=(d%60).toString().padStart(2,"0");
 },1000);
 
 function processOrder(){
-  const name = name.value.trim();
-  const email = email.value.trim();
-  const pay = payment.value;
-  if(!name || !email || !pay){
-    alert("Lengkapi data & pilih metode pembayaran");
-    return;
-  }
-  localStorage.setItem("order_name", name);
-  localStorage.setItem("order_email", email);
-  localStorage.setItem("order_payment", pay);
-  window.location.href = "success.html";
+  const n=document.getElementById("name").value.trim();
+  const e=document.getElementById("email").value.trim();
+  const p=document.getElementById("payment").value;
+  if(!n||!e||!p){alert("Lengkapi data");return;}
+  localStorage.setItem("order_name",n);
+  localStorage.setItem("order_email",e);
+  localStorage.setItem("order_payment",p);
+  window.location.href="success.html";
 }
 </script>
 
