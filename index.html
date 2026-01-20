@@ -32,7 +32,11 @@ p{text-align:center;line-height:1.6}
   padding:50px 25px;
   border-radius:20px;
 }
-.logo{text-align:center;font-size:36px;font-weight:900}
+.logo{
+  text-align:center;
+  font-size:36px;
+  font-weight:900;
+}
 .logo span{color:var(--accent)}
 .tagline{text-align:center;opacity:.9;margin-bottom:25px}
 
@@ -63,7 +67,7 @@ ul{list-style:none;padding:0}
 li{margin:8px 0}
 li::before{content:"✅ "}
 
-/* STEPS */
+/* STEP */
 .steps{display:grid;gap:20px}
 .step-box{
   background:rgba(255,255,255,.1);
@@ -71,38 +75,22 @@ li::before{content:"✅ "}
   border-radius:16px;
 }
 
-/* ===== MOCKUP PRODUK (BERSIH & STABIL) ===== */
+/* MOCKUP (VERSI AWAL, STABIL) */
 .mockup{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-  gap:24px;
-  justify-items:center;
-  margin:30px 0;
-}
-
-.mockup-box{
-  width:160px;
-  height:230px;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  border-radius:20px;
-  padding:18px;
   display:flex;
-  flex-direction:column;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.mockup-box{
+  width:150px;
+  height:200px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  border-radius:14px;
+  display:flex;
   align-items:center;
   justify-content:center;
-}
-
-.mockup-box img{
-  width:110px;
-  height:110px;
-  object-fit:contain;
-  margin-bottom:12px;
-}
-
-.mockup-box p{
-  margin:0;
-  font-size:15px;
-  font-weight:600;
+  font-weight:bold;
 }
 
 /* PRICE */
@@ -110,7 +98,11 @@ li::before{content:"✅ "}
 .price-new{font-size:42px;color:var(--accent);text-align:center;font-weight:900}
 
 /* TIMER */
-.timer{display:flex;justify-content:center;gap:12px}
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
 .time-box{
   background:#000;
   padding:12px 18px;
@@ -126,32 +118,6 @@ input,select{
   border-radius:10px;
   border:none;
   margin-bottom:12px;
-}
-
-/* BUNDLE */
-.highlight{background:#e9d5ff;color:#000;padding:3px 6px;border-radius:6px}
-.kisi-title{
-  display:inline-block;
-  margin:20px 0;
-  font-weight:600;
-  background:#e9d5ff;
-  color:#000;
-  padding:6px 12px;
-  border-radius:8px;
-}
-.tag-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.tag{
-  padding:6px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:500;
-  background:#e5e7eb;
-  color:#000;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .mockup{grid-template-columns:repeat(2,1fr)}
 }
 
 footer{text-align:center;opacity:.7;padding:30px}
@@ -207,53 +173,38 @@ footer{text-align:center;opacity:.7;padding:30px}
 <section class="container card">
 <h2>Cara Kerja Unlock Skill</h2>
 <div class="steps">
-<div class="step-box"><h3>🎯 Pribadi</h3><p>Beli → Download → Gunakan</p></div>
-<div class="step-box"><h3>💰 Cari Uang</h3><p>Beli → Download → Upload → Promosi → Terima Uang</p></div>
+<div class="step-box">
+<h3>🎯 Untuk Pribadi</h3>
+<p>Beli → Download → Gunakan</p>
+</div>
+<div class="step-box">
+<h3>💰 Untuk Cari Uang</h3>
+<p>Beli → Download → Upload → Promosi → Terima Uang</p>
+</div>
 </div>
 </section>
 
 <!-- ISI PAKET -->
 <section class="container card">
 <h2>Isi Paket Unlock Skill</h2>
-
 <div class="mockup">
-  <div class="mockup-box"><img src="images/ebook.png"><p>Ebook</p></div>
-  <div class="mockup-box"><img src="images/template.png"><p>Template</p></div>
-  <div class="mockup-box"><img src="images/course.png"><p>Course</p></div>
-  <div class="mockup-box"><img src="images/software.png"><p>Software</p></div>
-  <div class="mockup-box"><img src="images/audio.png"><p>Audio</p></div>
-  <div class="mockup-box"><img src="images/video.png"><p>Video</p></div>
-  <div class="mockup-box"><img src="images/grafis.png"><p>Grafis</p></div>
+  <div class="mockup-box">Ebook</div>
+  <div class="mockup-box">Template</div>
+  <div class="mockup-box">Course</div>
+  <div class="mockup-box">Software</div>
 </div>
-
 <ul>
-<li>Ribuan aset digital siap pakai & jual</li>
 <li>Lisensi PLR / MRR</li>
 <li>Marketing kit siap pakai</li>
+<li>Panduan dari nol sampai cuan</li>
 <li>Update produk GRATIS</li>
 </ul>
-</section>
-
-<!-- TESTIMONI -->
-<section class="container card">
-<h2>Apa Kata Mereka?</h2>
-<p><b>Rina</b><br>“Sekarang bisa jual produk digital dari HP.”</p>
-<p><b>Andi</b><br>“Sekali beli, produknya banyak banget.”</p>
-<p><b>Dewi</b><br>“Template & ebook sangat membantu bisnis.”</p>
-</section>
-
-<!-- FAQ -->
-<section class="container card">
-<h2>FAQ</h2>
-<p><b>Legal?</b><br>Ya, PLR / MRR.</p>
-<p><b>Sekali bayar?</b><br>Ya, seumur hidup.</p>
-<p><b>Pemula?</b><br>Sangat bisa.</p>
 </section>
 
 <!-- PRICE -->
 <section class="container card">
 <h2>Harga Promo Spesial</h2>
-<p class="price-old">Rp 1.299.000</p>
+<p class="price-old">Rp 699.000</p>
 <p class="price-new">Rp 89.000</p>
 <button class="btn" onclick="scrollToOrder()">🚀 Amankan Harga Promo</button>
 </section>
@@ -265,10 +216,14 @@ footer{text-align:center;opacity:.7;padding:30px}
 <input id="email" placeholder="Email Aktif">
 <select id="payment">
 <option value="">Pilih Metode Pembayaran</option>
-<option>BCA</option><option>BRI</option><option>Mandiri</option>
-<option>BNI</option><option>DANA/OVO</option><option>QRIS</option>
+<option>BCA</option>
+<option>BRI</option>
+<option>Mandiri</option>
+<option>BNI</option>
+<option>DANA / OVO</option>
+<option>QRIS</option>
 </select>
-<button class="btn" onclick="processOrder()">🔐 AMBIL AKSES & MULAI CUAN</button>
+<button class="btn">🔐 AMBIL AKSES & MULAI CUAN</button>
 </section>
 
 <footer>© 2026 Unlock Skill</footer>
@@ -278,28 +233,17 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-let end=localStorage.getItem("promo_end");
+let end = localStorage.getItem("promo_end");
 if(!end){
-  end=Date.now()+30*60*1000;
-  localStorage.setItem("promo_end",end);
+  end = Date.now() + 30*60*1000;
+  localStorage.setItem("promo_end", end);
 }
 
 setInterval(()=>{
-  let d=Math.floor((end-Date.now())/1000);
-  document.getElementById("min").innerText=Math.floor(d/60);
-  document.getElementById("sec").innerText=(d%60).toString().padStart(2,"0");
+  let diff = Math.floor((end - Date.now())/1000);
+  document.getElementById("min").innerText = Math.floor(diff/60);
+  document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
 },1000);
-
-function processOrder(){
-  const n=document.getElementById("name").value.trim();
-  const e=document.getElementById("email").value.trim();
-  const p=document.getElementById("payment").value;
-  if(!n||!e||!p){alert("Lengkapi data");return;}
-  localStorage.setItem("order_name",n);
-  localStorage.setItem("order_email",e);
-  localStorage.setItem("order_payment",p);
-  window.location.href="success.html";
-}
 </script>
 
 </body>
