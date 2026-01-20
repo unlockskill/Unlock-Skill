@@ -233,17 +233,36 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-let end = localStorage.getItem("promo_end");
-if(!end){
-  end = Date.now() + 30*60*1000;
-  localStorage.setItem("promo_end", end);
+// ===== COUNTDOWN 30 MENIT (FIX) =====
+const DURATION = 30 * 60 * 1000; // 30 menit
+let start = localStorage.getItem("promo_start");
+
+if (!start) {
+  start = Date.now();
+  localStorage.setItem("promo_start", start);
 }
 
-setInterval(()=>{
-  let diff = Math.floor((end - Date.now())/1000);
-  document.getElementById("min").innerText = Math.floor(diff/60);
-  document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
-},1000);
+function updateTimer(){
+  const now = Date.now();
+  const elapsed = now - start;
+  const remaining = DURATION - elapsed;
+
+  if (remaining <= 0) {
+    localStorage.removeItem("promo_start");
+    location.reload(); // reset timer
+    return;
+  }
+
+  const minutes = Math.floor(remaining / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+
+  document.getElementById("min").innerText = minutes;
+  document.getElementById("sec").innerText =
+    seconds.toString().padStart(2,"0");
+}
+
+setInterval(updateTimer, 1000);
+updateTimer();
 </script>
 
 </body>
