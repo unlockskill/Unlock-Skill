@@ -124,6 +124,63 @@ input,select{
 #qrBox{display:none;text-align:center;margin-top:25px}
 #qrBox img{width:220px}
 
+/* ===== BUNDLE SECTION ===== */
+.bundle-section{text-align:center}
+.highlight{
+  background:#e9d5ff;
+  color:#000;
+  padding:3px 6px;
+  border-radius:6px;
+}
+.bundle-desc{opacity:.9;margin-bottom:30px}
+.bundle-title{font-size:22px;font-weight:700;margin-bottom:10px}
+.bundle-sub{opacity:.9;margin-bottom:30px}
+.kisi-title{
+  display:inline-block;
+  margin-bottom:20px;
+  font-weight:600;
+  background:#e9d5ff;
+  color:#000;
+  padding:6px 12px;
+  border-radius:8px;
+}
+.tag-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+}
+.tag{
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:500;
+  color:#000;
+}
+
+/* pastel */
+.green{background:#d1fae5}
+.pink{background:#fce7f3}
+.purple{background:#ede9fe}
+.orange{background:#ffedd5}
+.blue{background:#dbeafe}
+.cyan{background:#cffafe}
+.teal{background:#ccfbf1}
+.gray{background:#f3f4f6}
+.yellow{background:#fef9c3}
+.mint{background:#dcfce7}
+.peach{background:#ffe4e6}
+.sky{background:#e0f2fe}
+.lime{background:#ecfccb}
+.violet{background:#f5f3ff}
+.sand{background:#fef3c7}
+.rose{background:#ffe4e6}
+.brown{background:#fef2f2}
+.lavender{background:#f3e8ff}
+.beige{background:#fafaf9}
+.coral{background:#fee2e2}
+.steel{background:#e5e7eb}
+
 footer{text-align:center;opacity:.7;padding:30px}
 </style>
 </head>
@@ -196,33 +253,68 @@ footer{text-align:center;opacity:.7;padding:30px}
 <div class="mockup-box">Template</div>
 <div class="mockup-box">Course</div>
 <div class="mockup-box">Software</div>
+<div class="mockup-box">Grafis</div>
+<div class="mockup-box">Audio</div>
+<div class="mockup-box">Video</div>
 </div>
 <ul>
+<li>Ribuan aset digital siap pakai & jual</li>
 <li>Lisensi PLR / MRR</li>
 <li>Marketing kit siap pakai</li>
-<li>Panduan dari nol sampai cuan</li>
 <li>Update produk GRATIS</li>
 </ul>
+</section>
+
+<!-- BUNDLE DETAIL -->
+<section class="container card bundle-section">
+<h2>Apa saja yang <span class="highlight">kamu</span> dapatkan? 🤔</h2>
+<p class="bundle-desc">
+Sekali beli, semua langsung kamu dapatkan dalam 1 paket lengkap.
+</p>
+
+<h3 class="bundle-title">
+1.8 Juta+ Produk Digital Lisensi Jual Kembali (PLR, MRR) ✅
+</h3>
+
+<p class="bundle-sub">
+E-book, template, software, kursus online, grafis, audio, video & aset siap jual.
+</p>
+
+<div class="kisi-title">Kisi-kisi produk 👇</div>
+
+<div class="tag-grid">
+<span class="tag green">Excel</span>
+<span class="tag pink">E-Course</span>
+<span class="tag purple">Premiere Pro</span>
+<span class="tag orange">Audio</span>
+<span class="tag blue">After Effects</span>
+<span class="tag cyan">Lightroom</span>
+<span class="tag teal">Photoshop</span>
+<span class="tag gray">Assets</span>
+<span class="tag yellow">Notion</span>
+<span class="tag mint">Elementor</span>
+<span class="tag peach">Templates</span>
+<span class="tag sky">Canva</span>
+<span class="tag violet">PowerPoint</span>
+<span class="tag coral">Mockups</span>
+<span class="tag steel">Prompts</span>
+</div>
 </section>
 
 <!-- TESTIMONI -->
 <section class="container card">
 <h2>Apa Kata Mereka?</h2>
-<p><b>Rina — Ibu Rumah Tangga</b><br>
-“Awalnya ragu, tapi sekarang sudah bisa jual produk digital sendiri.”</p>
-<p><b>Andi — Karyawan</b><br>
-“Satu kali beli, produknya banyak banget. Worth it!”</p>
-<p><b>Dewi — UMKM</b><br>
-“Template & ebook-nya sangat membantu bisnis saya.”</p>
+<p><b>Rina — Ibu Rumah Tangga</b><br>“Sekarang sudah bisa jual produk digital sendiri.”</p>
+<p><b>Andi — Karyawan</b><br>“Sekali beli, produknya banyak banget.”</p>
+<p><b>Dewi — UMKM</b><br>“Template & ebook sangat membantu bisnis saya.”</p>
 </section>
 
 <!-- FAQ -->
 <section class="container card">
 <h2>Pertanyaan yang Sering Ditanyakan</h2>
-<p><b>❓ Apakah ini legal?</b><br>Ya, produk memiliki lisensi PLR / MRR.</p>
+<p><b>❓ Legal?</b><br>Ya, lisensi PLR / MRR.</p>
 <p><b>❓ Sekali bayar?</b><br>Ya, akses seumur hidup.</p>
-<p><b>❓ Pemula bisa?</b><br>Sangat bisa, ada panduan lengkap.</p>
-<p><b>❓ Dikirim ke mana?</b><br>Akses dikirim via email.</p>
+<p><b>❓ Pemula bisa?</b><br>Sangat bisa.</p>
 </section>
 
 <!-- PRICE -->
@@ -236,7 +328,6 @@ footer{text-align:center;opacity:.7;padding:30px}
 <!-- ORDER -->
 <section id="order" class="container card">
 <h2>Form Pemesanan</h2>
-
 <input id="name" placeholder="Nama Lengkap">
 <input id="email" placeholder="Email Aktif">
 
@@ -251,12 +342,6 @@ footer{text-align:center;opacity:.7;padding:30px}
 </select>
 
 <button class="btn" onclick="processOrder()">🔐 AMBIL AKSES & MULAI CUAN</button>
-
-<div id="qrBox">
-<h3>Scan QR Pembayaran</h3>
-<img id="qrImg">
-<p>Akses dikirim setelah pembayaran</p>
-</div>
 </section>
 
 <footer>© 2026 Unlock Skill</footer>
@@ -266,7 +351,6 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-/* COUNTDOWN 30 MENIT */
 let end = localStorage.getItem("promo_end");
 if(!end){
   end = Date.now() + 30*60*1000;
@@ -275,29 +359,21 @@ if(!end){
 
 setInterval(()=>{
   let diff = Math.floor((end - Date.now())/1000);
-  if(diff <= 0){
-    localStorage.removeItem("promo_end");
-    location.reload();
-  }
   document.getElementById("min").innerText = Math.floor(diff/60);
   document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
 },1000);
 
-/* ORDER */
 function processOrder(){
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const pay = document.getElementById("payment").value;
-
+  const name = name.value.trim();
+  const email = email.value.trim();
+  const pay = payment.value;
   if(!name || !email || !pay){
     alert("Lengkapi data & pilih metode pembayaran");
     return;
   }
-
   localStorage.setItem("order_name", name);
   localStorage.setItem("order_email", email);
   localStorage.setItem("order_payment", pay);
-
   window.location.href = "success.html";
 }
 </script>
