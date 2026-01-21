@@ -156,15 +156,15 @@ function sendAccess(){
     return;
   }
 
-  // 1. Notifikasi ke user
-  alert(
+  const lanjut = confirm(
     "Terima kasih " + name +
     "\n\nLink / file produk akan dikirim ke:\n" +
     email +
-    "\n\nSilakan lanjutkan konfirmasi via WhatsApp."
+    "\n\nKlik OK untuk konfirmasi via WhatsApp."
   );
 
-  // 2. Kirim ke WhatsApp admin
+  if(!lanjut) return;
+
   const msg = `Halo Admin Unlock Skill 👋
 
 Konfirmasi pesanan baru:
