@@ -398,43 +398,54 @@ E-book, template, software, kursus online, grafis, audio, video & aset siap jual
 <footer>© 2026 Unlock Skill</footer>
 
 <script>
+/* =========================
+   SCROLL TO ORDER
+========================= */
 function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-function startPromoTimer(){
-  const DURATION = 30 * 60 * 1000; // 30 menit
+/* =========================
+   COUNTDOWN 30 MENIT (AUTO RESET)
+========================= */
+function startCountdown(){
+  let end = localStorage.getItem("promo_end");
 
-  let endTime = localStorage.getItem("promo_end");
-
-  // jika belum ada atau waktu sudah habis → reset
-  if(!endTime || Date.now() >= endTime){
-    endTime = Date.now() + DURATION;
-    localStorage.setItem("promo_end", endTime);
+  if(!end || Date.now() > end){
+    end = Date.now() + (30 * 60 * 1000);
+    localStorage.setItem("promo_end", end);
   }
 
   setInterval(() => {
-    let diff = Math.floor((endTime - Date.now()) / 1000);
+    let diff = Math.floor((end - Date.now()) / 1000);
 
-    // kalau habis → ulang ke 30 menit
     if(diff <= 0){
-      endTime = Date.now() + DURATION;
-      localStorage.setItem("promo_end", endTime);
-      diff = Math.floor(DURATION / 1000);
+      localStorage.removeItem("promo_end");
+      startCountdown();
+      return;
     }
 
     document.getElementById("min").innerText = Math.floor(diff / 60);
-    document.getElementById("sec").innerText =
-      (diff % 60).toString().padStart(2, "0");
+    document.getElementById("sec").innerText = (diff % 60)
+      .toString()
+      .padStart(2, "0");
   }, 1000);
 }
 
-startPromoTimer();
+startCountdown();
 
+/* =========================
+   ORDER PROCESS (FIX TOTAL)
+========================= */
 function processOrder(){
   const nameEl = document.getElementById("name");
   const emailEl = document.getElementById("email");
   const paymentEl = document.getElementById("payment");
+
+  if(!nameEl || !emailEl || !paymentEl){
+    alert("Form tidak ditemukan");
+    return;
+  }
 
   const name = nameEl.value.trim();
   const email = emailEl.value.trim();
