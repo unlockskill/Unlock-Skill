@@ -399,20 +399,21 @@ E-book, template, software, kursus online, grafis, audio, video & aset siap jual
 
 <script>
 /* =========================
-   SCROLL TO ORDER
+   SCROLL KE FORM
 ========================= */
 function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
 /* =========================
-   COUNTDOWN 30 MENIT (AUTO RESET)
+   COUNTDOWN 30 MENIT (AMAN)
 ========================= */
 function startCountdown(){
+  const DURATION = 30 * 60 * 1000;
   let end = localStorage.getItem("promo_end");
 
-  if(!end || Date.now() > end){
-    end = Date.now() + (30 * 60 * 1000);
+  if(!end || Date.now() >= end){
+    end = Date.now() + DURATION;
     localStorage.setItem("promo_end", end);
   }
 
@@ -420,22 +421,21 @@ function startCountdown(){
     let diff = Math.floor((end - Date.now()) / 1000);
 
     if(diff <= 0){
-      localStorage.removeItem("promo_end");
-      startCountdown();
-      return;
+      end = Date.now() + DURATION;
+      localStorage.setItem("promo_end", end);
+      diff = Math.floor(DURATION / 1000);
     }
 
     document.getElementById("min").innerText = Math.floor(diff / 60);
-    document.getElementById("sec").innerText = (diff % 60)
-      .toString()
-      .padStart(2, "0");
+    document.getElementById("sec").innerText =
+      (diff % 60).toString().padStart(2,"0");
   }, 1000);
 }
 
 startCountdown();
 
 /* =========================
-   ORDER PROCESS (FIX TOTAL)
+   PROSES ORDER → PAYMENT
 ========================= */
 function processOrder(){
   const nameEl = document.getElementById("name");
@@ -443,7 +443,7 @@ function processOrder(){
   const paymentEl = document.getElementById("payment");
 
   if(!nameEl || !emailEl || !paymentEl){
-    alert("Form tidak ditemukan");
+    alert("Form tidak lengkap");
     return;
   }
 
@@ -461,6 +461,7 @@ function processOrder(){
   localStorage.setItem("order_payment", pay);
 
   window.location.href = "payment.html";
+}
 </script>
 
 </body>
