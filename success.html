@@ -12,125 +12,172 @@
   --success:#00e676;
 }
 
-*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
 body{
   margin:0;
+  min-height:100vh;
   background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:#fff;
-}
-
-.container{
-  max-width:700px;
-  margin:80px auto;
-  padding:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .card{
+  width:100%;
+  max-width:520px;
   background:rgba(255,255,255,.08);
-  border-radius:24px;
+  border-radius:22px;
   padding:40px 30px;
   text-align:center;
 }
 
-.success-icon{
-  font-size:72px;
+.icon{
+  font-size:64px;
   color:var(--success);
-}
-
-h1{margin:15px 0}
-p{line-height:1.6}
-
-.order-box{
-  margin-top:25px;
-  text-align:left;
-  background:rgba(0,0,0,.35);
-  padding:20px;
-  border-radius:16px;
-}
-
-.order-box div{
   margin-bottom:10px;
 }
 
-.order-box span{
-  opacity:.8;
+h1{
+  margin:10px 0;
+}
+
+.desc{
+  opacity:.9;
+  margin-bottom:25px;
+}
+
+.detail{
+  background:rgba(0,0,0,.35);
+  border-radius:16px;
+  padding:20px;
+  text-align:left;
+}
+
+.detail div{
+  margin-bottom:10px;
+}
+
+.detail span{
+  opacity:.7;
+  font-size:14px;
+}
+
+.detail b{
+  display:block;
+  font-size:15px;
+  margin-top:2px;
 }
 
 .btn{
-  display:block;
-  margin-top:30px;
-  padding:16px;
-  background:var(--accent);
-  color:#000;
+  width:100%;
+  padding:15px;
   border:none;
   border-radius:30px;
-  font-size:18px;
+  font-size:16px;
   font-weight:bold;
   cursor:pointer;
+  margin-top:18px;
 }
-.btn:hover{opacity:.9}
+
+.btn-wa{
+  background:var(--accent);
+  color:#000;
+}
+
+.btn-home{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.4);
+}
 
 .note{
-  margin-top:25px;
-  font-size:14px;
-  opacity:.85;
+  font-size:13px;
+  opacity:.75;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
 <div class="card">
+  <div class="icon">✅</div>
+  <h1>Pesanan Diterima</h1>
+  <p class="desc">
+    Terima kasih 🙏  
+    Data pesanan kamu sudah kami catat.
+  </p>
 
-<div class="success-icon">✅</div>
-<h1>Pembayaran Berhasil</h1>
-<p>Terima kasih! Pesanan kamu sudah kami terima.</p>
+  <div class="detail">
+    <div>
+      <span>Nama</span>
+      <b id="dName">-</b>
+    </div>
+    <div>
+      <span>Email</span>
+      <b id="dEmail">-</b>
+    </div>
+    <div>
+      <span>Produk</span>
+      <b>8 Juta Produk Digital — Akses Seumur Hidup</b>
+    </div>
+    <div>
+      <span>Metode Pembayaran</span>
+      <b id="dPay">-</b>
+    </div>
+    <div>
+      <span>Total Pembayaran</span>
+      <b>Rp 89.000</b>
+    </div>
+  </div>
 
-<div class="order-box">
-  <div><span>Nama</span><br><b id="oName"></b></div>
-  <div><span>Email</span><br><b id="oEmail"></b></div>
-  <div><span>Produk</span><br><b>8jt Produk Digital – Akses Seumur Hidup</b></div>
-  <div><span>Metode Pembayaran</span><br><b id="oPay"></b></div>
-</div>
+  <button class="btn btn-wa" onclick="toWhatsApp()">
+    💬 Konfirmasi & Ambil Akses
+  </button>
 
-<button class="btn" onclick="toWhatsApp()">💬 Konfirmasi & Ambil Akses</button>
+  <button class="btn btn-home" onclick="goHome()">
+    ⬅️ Kembali ke Home
+  </button>
 
-<p class="note">
-Akses akan dikirim maksimal 1×24 jam ke email & WhatsApp kamu.
-</p>
-
-</div>
+  <p class="note">
+    Akses akan dikirim maksimal 1×24 jam melalui email & WhatsApp.
+  </p>
 </div>
 
 <script>
-document.getElementById("oName").innerText =
-  localStorage.getItem("order_name") || "-";
+const name  = localStorage.getItem("order_name");
+const email = localStorage.getItem("order_email");
+const pay   = localStorage.getItem("order_payment");
 
-document.getElementById("oEmail").innerText =
-  localStorage.getItem("order_email") || "-";
-
-document.getElementById("oPay").innerText =
-  (localStorage.getItem("order_payment") || "-").toUpperCase();
+document.getElementById("dName").innerText  = name || "-";
+document.getElementById("dEmail").innerText = email || "-";
+document.getElementById("dPay").innerText   = pay ? pay.toUpperCase() : "-";
 
 function toWhatsApp(){
-  let msg =
-`Halo Admin Unlock Skill 👋
+  const msg = `Halo Admin Unlock Skill 👋
 
-Saya sudah melakukan pembayaran.
+Saya sudah melakukan pemesanan.
 
-Nama: ${localStorage.getItem("order_name")}
-Email: ${localStorage.getItem("order_email")}
-Produk: 8jt Produk Digital – Akses Seumur Hidup
-Metode: ${localStorage.getItem("order_payment")}
+Nama: ${name}
+Email: ${email}
+Produk: 8 Juta Produk Digital — Akses Seumur Hidup
+Metode Pembayaran: ${pay}
 
-Mohon aksesnya 🙏`;
+Mohon diproses ya 🙏`;
 
   window.open(
     "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
     "_blank"
   );
+}
+
+function goHome(){
+  window.location.href = "index.html";
 }
 </script>
 
