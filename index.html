@@ -431,19 +431,28 @@ function startPromoTimer(){
 
 startPromoTimer();
 
+<script>
 function processOrder(){
-  const name = name.value.trim();
-  const email = email.value.trim();
-  const pay = payment.value;
+  const nameEl = document.getElementById("name");
+  const emailEl = document.getElementById("email");
+  const paymentEl = document.getElementById("payment");
+
+  const name = nameEl.value.trim();
+  const email = emailEl.value.trim();
+  const pay = paymentEl.value;
+
   if(!name || !email || !pay){
     alert("Lengkapi data & pilih metode pembayaran");
     return;
   }
+
   localStorage.setItem("order_name", name);
   localStorage.setItem("order_email", email);
   localStorage.setItem("order_payment", pay);
+
   window.location.href = "success.html";
 }
+</script>
 </script>
 
 </body>
