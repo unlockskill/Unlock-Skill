@@ -402,17 +402,34 @@ function scrollToOrder(){
   document.getElementById("order").scrollIntoView({behavior:"smooth"});
 }
 
-let end = localStorage.getItem("promo_end");
-if(!end){
-  end = Date.now() + 30*60*1000;
-  localStorage.setItem("promo_end", end);
+function startPromoTimer(){
+  const DURATION = 30 * 60 * 1000; // 30 menit
+
+  let endTime = localStorage.getItem("promo_end");
+
+  // jika belum ada atau waktu sudah habis → reset
+  if(!endTime || Date.now() >= endTime){
+    endTime = Date.now() + DURATION;
+    localStorage.setItem("promo_end", endTime);
+  }
+
+  setInterval(() => {
+    let diff = Math.floor((endTime - Date.now()) / 1000);
+
+    // kalau habis → ulang ke 30 menit
+    if(diff <= 0){
+      endTime = Date.now() + DURATION;
+      localStorage.setItem("promo_end", endTime);
+      diff = Math.floor(DURATION / 1000);
+    }
+
+    document.getElementById("min").innerText = Math.floor(diff / 60);
+    document.getElementById("sec").innerText =
+      (diff % 60).toString().padStart(2, "0");
+  }, 1000);
 }
 
-setInterval(()=>{
-  let diff = Math.floor((end - Date.now())/1000);
-  document.getElementById("min").innerText = Math.floor(diff/60);
-  document.getElementById("sec").innerText = (diff%60).toString().padStart(2,"0");
-},1000);
+startPromoTimer();
 
 function processOrder(){
   const name = name.value.trim();
