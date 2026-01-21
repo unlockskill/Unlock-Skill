@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran — Unlock Skill</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
+}
+
+.container{
+  max-width:600px;
+  margin:60px auto;
+  padding:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:30px;
+}
+
+h1,h2{text-align:center}
+p{line-height:1.6}
+
+.detail{
+  margin:20px 0;
+}
+.detail div{
+  margin-bottom:10px;
+}
+
+.highlight{
+  font-weight:bold;
+  color:#00ff99;
+}
+
+.pay-box{
+  background:#000;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  margin:25px 0;
+}
+
+.pay-box img{
+  width:220px;
+  border-radius:12px;
+  background:#fff;
+  padding:10px;
+}
+
+.btn{
+  width:100%;
+  padding:16px;
+  background:#ff3d00;
+  border:none;
+  border-radius:30px;
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.btn:hover{opacity:.9}
+
+.note{
+  font-size:14px;
+  opacity:.8;
+  margin-top:15px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<h1>💳 Pembayaran</h1>
+<p>Silakan lakukan pembayaran sesuai detail di bawah ini</p>
+
+<div class="detail">
+  <div>Nama: <span class="highlight" id="name"></span></div>
+  <div>Email: <span class="highlight" id="email"></span></div>
+  <div>Produk: <b>8jt Produk Digital – Akses Seumur Hidup</b></div>
+  <div>Harga: <span class="highlight">Rp 89.000</span></div>
+  <div>Metode: <span class="highlight" id="payment"></span></div>
+</div>
+
+<div class="pay-box" id="payBox">
+  <!-- ISI DINAMIS -->
+</div>
+
+<button class="btn" onclick="goSuccess()">✅ Saya Sudah Bayar</button>
+
+<p class="note">
+Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
+</p>
+
+</div>
+</div>
+
+<script>
+const name = localStorage.getItem("order_name");
+const email = localStorage.getItem("order_email");
+const pay = localStorage.getItem("order_payment");
+
+document.getElementById("name").innerText = name || "-";
+document.getElementById("email").innerText = email || "-";
+document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
+
+const payBox = document.getElementById("payBox");
+
+if(pay === "qris"){
+  payBox.innerHTML = `
+    <h2>Scan QRIS</h2>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=UNLOCKSKILL-QRIS-89000">
+    <p>Gunakan e-wallet / mobile banking</p>
+  `;
+}else{
+  let rekening = {
+    bca: "BCA 123456789 a.n Unlock Skill",
+    bri: "BRI 987654321 a.n Unlock Skill",
+    mandiri: "Mandiri 1122334455 a.n Unlock Skill",
+    bni: "BNI 5566778899 a.n Unlock Skill",
+    dana: "DANA / OVO: 0895-1412-4122"
+  };
+
+  payBox.innerHTML = `
+    <h2>Transfer Manual</h2>
+    <p>${rekening[pay] || "Hubungi admin"}</p>
+  `;
+}
+
+function goSuccess(){
+  window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>
