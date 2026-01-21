@@ -150,6 +150,39 @@ h1{
 </div>
 
 <script>
+function sendAccess(){
+  if(!name || !email){
+    alert("Data pesanan tidak ditemukan.");
+    return;
+  }
+
+  // 1. Notifikasi ke user
+  alert(
+    "Terima kasih " + name +
+    "\n\nLink / file produk akan dikirim ke:\n" +
+    email +
+    "\n\nSilakan lanjutkan konfirmasi via WhatsApp."
+  );
+
+  // 2. Kirim ke WhatsApp admin
+  const msg = `Halo Admin Unlock Skill 👋
+
+Konfirmasi pesanan baru:
+
+Nama: ${name}
+Email: ${email}
+Produk: 8 Juta Produk Digital — Akses Seumur Hidup
+Metode Pembayaran: ${pay}
+Total: Rp 89.000
+
+Mohon diproses ya 🙏`;
+
+  window.open(
+    "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
+}
+
 const name  = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
 const pay   = localStorage.getItem("order_payment");
