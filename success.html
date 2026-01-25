@@ -206,10 +206,8 @@ function sendAccess(){
         "Total: Rp 89.000\n\n" +
         "Mohon diproses ya 🙏";
 
-      window.open(
-        "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
-        "_blank"
-      );
+      window.location.href =
+  "https://wa.me/6289514124122?text=" + encodeURIComponent(msg);
     }
 
   }, function(error){
