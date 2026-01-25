@@ -101,6 +101,12 @@ h1{
   margin-top:20px;
 }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("qgcvNkoqoA0mZZ-g7"); // ← PUBLIC KEY kamu
+  })();
+</script>
 </head>
 
 <body>
@@ -150,65 +156,71 @@ h1{
 </div>
 
 <script>
+/* =========================
+   AMBIL DATA PESANAN
+========================= */
+const name  = localStorage.getItem("order_name");
+const email = localStorage.getItem("order_email");
+const pay   = localStorage.getItem("order_payment");
+
+/* TAMPILKAN DATA */
+document.getElementById("dName").innerText  = name || "-";
+document.getElementById("dEmail").innerText = email || "-";
+document.getElementById("dPay").innerText   = pay ? pay.toUpperCase() : "-";
+
+/* =========================
+   KIRIM AKSES (EMAIL + WA)
+========================= */
 function sendAccess(){
   if(!name || !email){
     alert("Data pesanan tidak ditemukan.");
     return;
   }
 
-  const lanjut = confirm(
-  "Terima kasih " + name +
-  "\n\nLink / file produk SUDAH dikirim ke:\n" +
-  email +
-  "\n\nKlik OK untuk konfirmasi via WhatsApp."
-);
+  emailjs.send(
+    "service_meuruq1",      // contoh: service_meuruq1
+    "template_1kqhujf",     // contoh: template_xxxx
+    {
+      to_name: name,
+      to_email: email,
+      product_name: "8 Juta Produk Digital — Akses Seumur Hidup",
+      download_link: "https://majestic-glove-b03.notion.site/Akses-Bundle-8-Juta-Produk-Digital-Lisensi-U-PLR-PLR-MRR-23ff5ee2488e80b4a065d81cfd6986a2"
+    }
+  ).then(function(){
 
-  if(!lanjut) return;
+    const lanjut = confirm(
+      "Terima kasih " + name +
+      "\n\nLink / file produk SUDAH dikirim ke:\n" +
+      email +
+      "\n\nKlik OK untuk konfirmasi via WhatsApp."
+    );
 
-  const msg = `Halo Admin Unlock Skill 👋
+    if(lanjut){
+      const msg =
+        "Halo Admin Unlock Skill 👋\n\n" +
+        "Konfirmasi pesanan:\n\n" +
+        "Nama: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Produk: 8 Juta Produk Digital — Akses Seumur Hidup\n" +
+        "Metode Pembayaran: " + pay + "\n" +
+        "Total: Rp 89.000\n\n" +
+        "Mohon diproses ya 🙏";
 
-Konfirmasi pesanan baru:
+      window.open(
+        "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
+        "_blank"
+      );
+    }
 
-Nama: ${name}
-Email: ${email}
-Produk: 8 Juta Produk Digital — Akses Seumur Hidup
-Metode Pembayaran: ${pay}
-Total: Rp 89.000
-
-Mohon diproses ya 🙏`;
-
-  window.open(
-    "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
+  }, function(error){
+    alert("Gagal mengirim email. Silakan hubungi admin.");
+    console.error(error);
+  });
 }
 
-const name  = localStorage.getItem("order_name");
-const email = localStorage.getItem("order_email");
-const pay   = localStorage.getItem("order_payment");
-
-document.getElementById("dName").innerText  = name || "-";
-document.getElementById("dEmail").innerText = email || "-";
-document.getElementById("dPay").innerText   = pay ? pay.toUpperCase() : "-";
-
-function toWhatsApp(){
-  const msg = `Halo Admin Unlock Skill 👋
-
-Saya sudah melakukan pemesanan.
-
-Nama: ${name}
-Email: ${email}
-Produk: 8 Juta Produk Digital — Akses Seumur Hidup
-Metode Pembayaran: ${pay}
-
-Mohon diproses ya 🙏`;
-
-  window.open(
-    "https://wa.me/6289514124122?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
-}
-
+/* =========================
+   KEMBALI KE HOME
+========================= */
 function goHome(){
   window.location.href = "index.html";
 }
