@@ -280,6 +280,11 @@ footer{text-align:center;opacity:.7;padding:30px}
   font-weight:600;
 }
 </style>
+  <!-- Intl Tel Input CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css"
+/>
 </head>
 
 <body>
@@ -455,7 +460,11 @@ E-book, template, software, kursus online, grafis, audio, video & aset siap jual
 <section id="order" class="container card">
 <h2>Form Pemesanan</h2>
 <input id="name" placeholder="Nama Lengkap">
-<input id="phone" type="tel" placeholder="Nomor WhatsApp Aktif">
+<input
+  id="phone"
+  type="tel"
+  placeholder="Nomor WhatsApp Aktif"
+>
 <input id="email" placeholder="Email Aktif">
 
 <select id="payment">
@@ -556,6 +565,7 @@ startCountdown();
 ========================= */
 function processOrder(){
   const nameEl = document.getElementById("name");
+  const phoneNumber = iti.getNumber();
   const emailEl = document.getElementById("email");
   const paymentEl = document.getElementById("payment");
 
@@ -563,6 +573,11 @@ function processOrder(){
     alert("Form tidak lengkap");
     return;
   }
+  
+if(!iti.isValidNumber()){
+  alert("Nomor WhatsApp tidak valid");
+  return;
+}
 
   const name = nameEl.value.trim();
   const email = emailEl.value.trim();
@@ -574,11 +589,26 @@ function processOrder(){
   }
 
   localStorage.setItem("order_name", name);
+  localStorage.setItem("order_phone", phoneNumber);
   localStorage.setItem("order_email", email);
   localStorage.setItem("order_payment", pay);
 
   window.location.href = "payment.html";
 }
+  <!-- Intl Tel Input JS -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+
+<script>
+  const phoneInput = document.querySelector("#phone");
+
+  const iti = window.intlTelInput(phoneInput, {
+    initialCountry: "id",
+    separateDialCode: true,
+    preferredCountries: ["id", "sg", "my"],
+    utilsScript:
+      "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+  });
+</script>
 </script>
 
 </body>
