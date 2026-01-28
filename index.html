@@ -633,6 +633,8 @@ function processOrder(){
   localStorage.setItem("order_email", email);
   localStorage.setItem("order_phone", phoneNumber);
   localStorage.setItem("order_payment", pay);
+  const isReseller = document.getElementById("upgradeReseller").checked;
+localStorage.setItem("order_reseller", isReseller ? "yes" : "no");
 
   window.location.href = "payment.html";
 }
