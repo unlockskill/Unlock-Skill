@@ -563,21 +563,30 @@ startCountdown();
 /* =========================
    PROSES ORDER → PAYMENT
 ========================= */
+<!-- Intl Tel Input JS -->
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+
+<script>
+/* =========================
+   INIT PHONE INPUT
+========================= */
+const phoneInput = document.querySelector("#phone");
+
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "id",
+  separateDialCode: true,
+  preferredCountries: ["id", "sg", "my"],
+  utilsScript:
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+});
+
+/* =========================
+   PROSES ORDER → PAYMENT
+========================= */
 function processOrder(){
   const nameEl = document.getElementById("name");
-  const phoneNumber = iti.getNumber();
   const emailEl = document.getElementById("email");
   const paymentEl = document.getElementById("payment");
-
-  if(!nameEl || !emailEl || !paymentEl){
-    alert("Form tidak lengkap");
-    return;
-  }
-  
-if(!iti.isValidNumber()){
-  alert("Nomor WhatsApp tidak valid");
-  return;
-}
 
   const name = nameEl.value.trim();
   const email = emailEl.value.trim();
@@ -588,27 +597,21 @@ if(!iti.isValidNumber()){
     return;
   }
 
+  // ✅ VALIDASI NOMOR
+  if(!iti.isValidNumber()){
+    alert("Nomor WhatsApp tidak valid");
+    return;
+  }
+
+  const phoneNumber = iti.getNumber(); // +628xxxx
+
   localStorage.setItem("order_name", name);
-  localStorage.setItem("order_phone", phoneNumber);
   localStorage.setItem("order_email", email);
+  localStorage.setItem("order_phone", phoneNumber);
   localStorage.setItem("order_payment", pay);
 
   window.location.href = "payment.html";
 }
-  <!-- Intl Tel Input JS -->
-<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
-
-<script>
-  const phoneInput = document.querySelector("#phone");
-
-  const iti = window.intlTelInput(phoneInput, {
-    initialCountry: "id",
-    separateDialCode: true,
-    preferredCountries: ["id", "sg", "my"],
-    utilsScript:
-      "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-  });
-</script>
 </script>
 
 </body>
