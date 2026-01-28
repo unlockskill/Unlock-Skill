@@ -141,6 +141,18 @@ document.getElementById("name").innerText = name || "-";
 document.getElementById("email").innerText = email || "-";
 document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
 
+const reseller = localStorage.getItem("order_reseller");
+
+let total = 89000;
+
+if (reseller === "yes") {
+  document.getElementById("resellerRow").style.display = "flex";
+  total += 29000;
+}
+
+document.getElementById("totalPrice").innerText =
+  "Rp " + total.toLocaleString("id-ID");
+  
 const payBox = document.getElementById("payBox");
 
 if(pay === "qris"){
