@@ -148,7 +148,7 @@ Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
 </div>
 
 <script>
-const name = localStorage.getItem("order_name");
+<script>
 const name = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
 const pay = localStorage.getItem("order_payment");
@@ -160,6 +160,7 @@ document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
 
 let total = 89000;
 
+// ➕ Jika ambil reseller kit
 if (reseller === "yes") {
   document.getElementById("resellerRow").style.display = "flex";
   total += 29000;
@@ -170,6 +171,7 @@ document.getElementById("totalPrice").innerText =
 
 const payBox = document.getElementById("payBox");
 
+// ===== PAYMENT METHOD =====
 if (pay === "qris") {
   const qrisData = "UNLOCKSKILL-" + total;
 
@@ -179,7 +181,7 @@ if (pay === "qris") {
     <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
   `;
 } else {
-  let rekening = {
+  const rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
     bri: "BRI 987654321 a.n Unlock Skill",
     mandiri: "Mandiri 1122334455 a.n Unlock Skill",
