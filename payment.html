@@ -149,6 +149,7 @@ Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
 
 <script>
 const name = localStorage.getItem("order_name");
+const name = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
 const pay = localStorage.getItem("order_payment");
 const reseller = localStorage.getItem("order_reseller");
@@ -178,7 +179,7 @@ if (pay === "qris") {
     <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
   `;
 } else {
-  const rekening = {
+  let rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
     bri: "BRI 987654321 a.n Unlock Skill",
     mandiri: "Mandiri 1122334455 a.n Unlock Skill",
@@ -189,6 +190,7 @@ if (pay === "qris") {
   payBox.innerHTML = `
     <h2>Transfer Manual</h2>
     <p>${rekening[pay] || "Hubungi admin"}</p>
+    <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
   `;
 }
 
