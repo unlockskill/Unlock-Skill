@@ -636,6 +636,14 @@ function processOrder(){
   const isReseller = document.getElementById("upgradeReseller").checked;
 localStorage.setItem("order_reseller", isReseller ? "yes" : "no");
 
+  const resellerChecked =
+  document.getElementById("upgradeReseller").checked;
+
+localStorage.setItem(
+  "order_reseller",
+  resellerChecked ? "yes" : "no"
+);
+  
   window.location.href = "payment.html";
 }
 </script>
