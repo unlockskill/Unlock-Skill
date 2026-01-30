@@ -136,31 +136,7 @@ p{line-height:1.6}
   <!-- ISI DINAMIS -->
 </div>
 
-  <div id="orderSummary" class="card" style="background:#fff;color:#000">
-  <h3>RINCIAN PESANAN</h3>
-
-  <div style="display:flex;justify-content:space-between">
-    <span>Akses 8 Juta+ Produk Digital</span>
-    <span id="priceMain">Rp 89.000</span>
-  </div>
-
-  <div style="display:flex;justify-content:space-between">
-    <span>Bonus Eksklusif</span>
-    <span>Rp 0</span>
-  </div>
-
-  <div id="resellerRow" style="display:none;justify-content:space-between">
-    <span>Reseller Power Kit</span>
-    <span>Rp 29.000</span>
-  </div>
-
-  <hr>
-
-  <div style="display:flex;justify-content:space-between;font-weight:bold">
-    <span>Total</span>
-    <span id="totalPrice">Rp 89.000</span>
-  </div>
-</div>
+  
   
 <button class="btn" onclick="goSuccess()">✅ Saya Sudah Bayar</button>
 
@@ -175,12 +151,11 @@ Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
 const name = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
 const pay = localStorage.getItem("order_payment");
+const reseller = localStorage.getItem("order_reseller");
 
 document.getElementById("name").innerText = name || "-";
 document.getElementById("email").innerText = email || "-";
 document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
-
-const reseller = localStorage.getItem("order_reseller");
 
 let total = 89000;
 
@@ -191,10 +166,10 @@ if (reseller === "yes") {
 
 document.getElementById("totalPrice").innerText =
   "Rp " + total.toLocaleString("id-ID");
-  
+
 const payBox = document.getElementById("payBox");
 
-if(pay === "qris"){
+if (pay === "qris") {
   const qrisData = "UNLOCKSKILL-" + total;
 
   payBox.innerHTML = `
@@ -202,9 +177,8 @@ if(pay === "qris"){
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${qrisData}">
     <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
   `;
-}
-}else{
-  let rekening = {
+} else {
+  const rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
     bri: "BRI 987654321 a.n Unlock Skill",
     mandiri: "Mandiri 1122334455 a.n Unlock Skill",
@@ -217,18 +191,7 @@ if(pay === "qris"){
     <p>${rekening[pay] || "Hubungi admin"}</p>
   `;
 }
-const reseller = localStorage.getItem("order_reseller");
 
-let total = 89000;
-
-if(reseller === "yes"){
-  document.getElementById("resellerRow").style.display = "flex";
-  total += 29000;
-}
-
-document.getElementById("totalPrice").innerText =
-  "Rp " + total.toLocaleString("id-ID");
-  
 function goSuccess(){
   window.location.href = "success.html";
 }
