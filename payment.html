@@ -195,11 +195,14 @@ document.getElementById("totalPrice").innerText =
 const payBox = document.getElementById("payBox");
 
 if(pay === "qris"){
+  const qrisData = "UNLOCKSKILL-" + total;
+
   payBox.innerHTML = `
     <h2>Scan QRIS</h2>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=UNLOCKSKILL-QRIS-89000">
-    <p>Gunakan e-wallet / mobile banking</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${qrisData}">
+    <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
   `;
+}
 }else{
   let rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
@@ -214,7 +217,18 @@ if(pay === "qris"){
     <p>${rekening[pay] || "Hubungi admin"}</p>
   `;
 }
+const reseller = localStorage.getItem("order_reseller");
 
+let total = 89000;
+
+if(reseller === "yes"){
+  document.getElementById("resellerRow").style.display = "flex";
+  total += 29000;
+}
+
+document.getElementById("totalPrice").innerText =
+  "Rp " + total.toLocaleString("id-ID");
+  
 function goSuccess(){
   window.location.href = "success.html";
 }
