@@ -183,12 +183,34 @@ const payBox = document.getElementById("payBox");
 
 if (pay === "qris") {
   const qrisData = "UNLOCKSKILL-" + total;
+  const qrUrl =
+    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
+    encodeURIComponent(qrisData);
 
   payBox.innerHTML = `
     <h2>Scan QRIS</h2>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${qrisData}">
-    <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
+
+    <img id="qrImage"
+         src="${qrUrl}"
+         alt="QRIS Unlock Skill">
+
+    <p>Total pembayaran:
+      <b>Rp ${total.toLocaleString("id-ID")}</b>
+    </p>
+
+    <a href="${qrUrl}"
+       download="QRIS-Unlock-Skill-${total}.png"
+       style="
+         display:inline-block;
+         margin-top:12px;
+         color:#00ff99;
+         font-weight:bold;
+         text-decoration:none;
+       ">
+       ⬇️ Download QRIS
+    </a>
   `;
+}
 } else {
   const rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
