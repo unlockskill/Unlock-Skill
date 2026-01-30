@@ -159,7 +159,6 @@ document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
 
 let total = 89000;
 
-// ➕ Jika ambil reseller kit
 if (reseller === "yes") {
   document.getElementById("resellerRow").style.display = "flex";
   total += 29000;
@@ -170,7 +169,6 @@ document.getElementById("totalPrice").innerText =
 
 const payBox = document.getElementById("payBox");
 
-// ===== PAYMENT METHOD =====
 if (pay === "qris") {
   const qrisData = "UNLOCKSKILL-" + total;
 
