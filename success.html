@@ -129,6 +129,10 @@ h1{
       <b id="dEmail">-</b>
     </div>
     <div>
+      <span>No WhatsApp</span>
+      <b id="phone"></b>
+    </div>
+    <div>
       <span>Produk</span>
       <b>8 Juta Produk Digital — Akses Seumur Hidup</b>
     </div>
@@ -161,11 +165,13 @@ h1{
 ========================= */
 const name  = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
+const phone = localStorage.getItem("order_phone");
 const pay   = localStorage.getItem("order_payment");
 
 /* TAMPILKAN DATA */
 document.getElementById("dName").innerText  = name || "-";
 document.getElementById("dEmail").innerText = email || "-";
+document.getElementById("phone").innerText = phone || "-";
 document.getElementById("dPay").innerText   = pay ? pay.toUpperCase() : "-";
 
 /* =========================
