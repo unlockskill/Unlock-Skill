@@ -190,9 +190,7 @@ if (pay === "qris") {
   payBox.innerHTML = `
     <h2>Scan QRIS</h2>
 
-    <img id="qrImage"
-         src="${qrUrl}"
-         alt="QRIS Unlock Skill">
+    <img src="${qrUrl}" alt="QRIS Unlock Skill">
 
     <p>Total pembayaran:
       <b>Rp ${total.toLocaleString("id-ID")}</b>
@@ -210,8 +208,7 @@ if (pay === "qris") {
        ⬇️ Download QRIS
     </a>
   `;
-}
-else {
+} else {
   const rekening = {
     bca: "BCA 123456789 a.n Unlock Skill",
     bri: "BRI 987654321 a.n Unlock Skill",
@@ -223,7 +220,9 @@ else {
   payBox.innerHTML = `
     <h2>Transfer Manual</h2>
     <p>${rekening[pay] || "Hubungi admin"}</p>
-    <p>Total pembayaran: <b>Rp ${total.toLocaleString("id-ID")}</b></p>
+    <p>Total pembayaran:
+      <b>Rp ${total.toLocaleString("id-ID")}</b>
+    </p>
   `;
 }
 
