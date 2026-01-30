@@ -104,6 +104,7 @@ p{line-height:1.6}
 <div class="detail">
   <div>Nama: <span class="highlight" id="name"></span></div>
   <div>Email: <span class="highlight" id="email"></span></div>
+  <div>No WhatsApp: <span class="highlight" id="phone"></span></div>
   <div>Produk: <b>8jt Produk Digital – Akses Seumur Hidup</b></div>
   <div>Harga: <span class="highlight">Rp 89.000</span></div>
   <div>Metode: <span class="highlight" id="payment"></span></div>
@@ -162,11 +163,13 @@ Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
 <script>
 const name = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
+const phone = localStorage.getItem("order_phone");
 const pay = localStorage.getItem("order_payment");
 const reseller = localStorage.getItem("order_reseller");
 
 document.getElementById("name").innerText = name || "-";
 document.getElementById("email").innerText = email || "-";
+document.getElementById("phone").innerText = phone || "-";
 document.getElementById("payment").innerText = pay ? pay.toUpperCase() : "-";
 
 let total = 89000;
