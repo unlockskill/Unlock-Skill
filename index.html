@@ -652,5 +652,31 @@ localStorage.setItem(
   window.location.href = "payment.html";
 }
 </script>
+  
+  <!-- 🔽 SCRIPT BARU MIDTRANS DI SINI 🔽 -->
+<script>
+document.getElementById("payBtn").addEventListener("click", function () {
+
+  const orderId = "ORDER-" + Date.now();
+  const grossAmount = 89000;
+
+  snap.pay("SNAP_TOKEN_NANTI_DIISI", {
+    onSuccess: function (result) {
+      console.log("SUCCESS", result);
+      window.location.href = "success.html";
+    },
+    onPending: function () {
+      alert("Pembayaran pending, silakan selesaikan pembayaran");
+    },
+    onError: function () {
+      alert("Pembayaran gagal");
+    },
+    onClose: function () {
+      alert("Kamu menutup popup pembayaran");
+    }
+  });
+
+});
+</script>
 </body>
 </html>
