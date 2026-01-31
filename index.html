@@ -316,11 +316,6 @@ footer{text-align:center;opacity:.7;padding:30px}
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css"
 />
-  <!--INI MIDTRANS SNAP SANDBOX -->
-  <script 
-  src="https://app.sandbox.midtrans.com/snap/snap.js"
-  data-client-key="Mid-client-A-6ElWrkPb-HIJLU">
-</script>
 </head>
 
 <body>
@@ -554,7 +549,7 @@ E-book, template, software, kursus online, grafis, audio, video & aset siap jual
   </div>
 </div>
     
-<button id="payBtn" class="btn">
+<button class="btn" onclick="processOrder()">
   🚀 Ambil Akses & Mulai Cuan
 </button>
 </section>
@@ -651,32 +646,6 @@ localStorage.setItem(
   
   window.location.href = "payment.html";
 }
-</script>
-  
-  <!-- 🔽 SCRIPT BARU MIDTRANS DI SINI 🔽 -->
-<script>
-document.getElementById("payBtn").addEventListener("click", function () {
-
-  const orderId = "ORDER-" + Date.now();
-  const grossAmount = 89000;
-
-  snap.pay("SNAP_TOKEN_NANTI_DIISI", {
-    onSuccess: function (result) {
-      console.log("SUCCESS", result);
-      window.location.href = "success.html";
-    },
-    onPending: function () {
-      alert("Pembayaran pending, silakan selesaikan pembayaran");
-    },
-    onError: function () {
-      alert("Pembayaran gagal");
-    },
-    onClose: function () {
-      alert("Kamu menutup popup pembayaran");
-    }
-  });
-
-});
 </script>
 </body>
 </html>
