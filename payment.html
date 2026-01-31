@@ -188,52 +188,7 @@ if (reseller === "yes") {
 document.getElementById("totalPrice").innerText =
   "Rp " + total.toLocaleString("id-ID");
 
-const payBox = document.getElementById("payBox");
 
-if (pay === "qris") {
-  const qrisData = "UNLOCKSKILL-" + total;
-  const qrUrl =
-    "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" +
-    encodeURIComponent(qrisData);
-
-  payBox.innerHTML = `
-    <h2>Scan QRIS</h2>
-
-    <img src="${qrUrl}" alt="QRIS Unlock Skill">
-
-    <p>Total pembayaran:
-      <b>Rp ${total.toLocaleString("id-ID")}</b>
-    </p>
-
-    <a href="${qrUrl}"
-       download="QRIS-Unlock-Skill-${total}.png"
-       style="
-         display:inline-block;
-         margin-top:12px;
-         color:#00ff99;
-         font-weight:bold;
-         text-decoration:none;
-       ">
-       ⬇️ Download QRIS
-    </a>
-  `;
-} else {
-  const rekening = {
-    bca: "BCA 123456789 a.n Unlock Skill",
-    bri: "BRI 987654321 a.n Unlock Skill",
-    mandiri: "Mandiri 1122334455 a.n Unlock Skill",
-    bni: "BNI 5566778899 a.n Unlock Skill",
-    dana: "DANA / OVO: 0895-1412-4122"
-  };
-
-  payBox.innerHTML = `
-    <h2>Transfer Manual</h2>
-    <p>${rekening[pay] || "Hubungi admin"}</p>
-    <p>Total pembayaran:
-      <b>Rp ${total.toLocaleString("id-ID")}</b>
-    </p>
-  `;
-}
 
 </script>
   
