@@ -91,6 +91,10 @@ p{line-height:1.6}
   font-size:18px;
 }
 </style>
+  <script 
+  src="https://app.sandbox.midtrans.com/snap/snap.js"
+  data-client-key="MIDTRANS_CLIENT_KEY_SANDBOX_KAMU">
+</script>
 </head>
 
 <body>
@@ -151,8 +155,10 @@ p{line-height:1.6}
 
   
   
-<button class="btn" onclick="goSuccess()">✅ Saya Sudah Bayar</button>
-
+<button id="payBtn" class="btn">
+  💳 Bayar Sekarang
+</button>
+  
 <p class="note">
 Setelah klik tombol di atas, kamu akan diarahkan ke halaman konfirmasi.
 </p>
@@ -229,10 +235,60 @@ if (pay === "qris") {
   `;
 }
 
-function goSuccess(){
-  window.location.href = "success.html";
-}
 </script>
+  
+<script>
+document.getElementById("payBtn").addEventListener("click", function () {
 
+  // 🔹 ambil data dari localStorage
+  const name = localStorage.getItem("order_name");
+  const email = localStorage.getItem("order_email");
+  const reseller = localStorage.getItem("order_reseller");
+
+  let total = 89000;
+  if(reseller === "yes"){
+    total += 29000;
+  }
+
+  // 🔹 kirim ke backend (Vercel nanti)
+  fetch("https://BACKEND-KAMU.vercel.app/api/create-transaction", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      order_id: "ORDER-" + Date.now(),
+      gross_amount: total,
+      name: name,
+      email: email
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+
+    // 🔹 tampilkan popup Midtrans
+    snap.pay(data.token, {
+
+      onSuccess: function (result) {
+        console.log("SUCCESS", result);
+        window.location.href = "success.html";
+      },
+
+      onPending: function (result) {
+        alert("Pembayaran belum selesai, silakan selesaikan pembayaran");
+      },
+
+      onError: function (result) {
+        alert("Pembayaran gagal");
+      },
+
+      onClose: function () {
+        alert("Kamu menutup popup pembayaran");
+      }
+
+    });
+
+  });
+
+});
+</script>
 </body>
 </html>
