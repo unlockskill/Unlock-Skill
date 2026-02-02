@@ -211,7 +211,7 @@ document.getElementById("payBtn").addEventListener("click", function () {
 localStorage.setItem("order_total", total);
   
   // 🔹 kirim ke backend (Vercel nanti)
-  fetch("https://BACKEND-KAMU.vercel.app/api/create-transaction", {
+  fetch("https://unlockskill-backend.vercel.app/api/create-transaction", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
