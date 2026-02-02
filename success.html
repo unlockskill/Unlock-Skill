@@ -118,12 +118,7 @@ h1{
 const name = localStorage.getItem("order_name");
 const email = localStorage.getItem("order_email");
 const phone = localStorage.getItem("order_phone");
-const reseller = localStorage.getItem("order_reseller");
-
-let total = 89000;
-if(reseller === "yes"){
-  total += 29000;
-}
+const total = parseInt(localStorage.getItem("order_total") || "0");
 
 document.getElementById("name").innerText = name || "-";
 document.getElementById("email").innerText = email || "-";
@@ -143,7 +138,7 @@ Total: Rp ${total.toLocaleString("id-ID")}
 
 Mohon aktivasi akses. Terima kasih 🙏`;
 
-  const waAdmin = "628XXXXXXXXXX"; // GANTI NO WA KAMU
+  const waAdmin = "6289514124122"; // GANTI NO WA KAMU
   window.open(
     "https://wa.me/" + waAdmin + "?text=" + encodeURIComponent(msg),
     "_blank"
