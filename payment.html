@@ -198,58 +198,29 @@ document.getElementById("totalPrice").innerText =
   
 <script>
 document.getElementById("payBtn").addEventListener("click", function () {
-  alert("Tombol diklik"); // 👈 TAMBAH SEMENTARA
-});
+  alert("1️⃣ Tombol Bayar diklik");
 
-  // 🔹 ambil data dari localStorage
-  const name = localStorage.getItem("order_name");
-  const email = localStorage.getItem("order_email");
-  const reseller = localStorage.getItem("order_reseller");
-
-  let total = 89000;
-  if(reseller === "yes"){
-    total += 29000;
-  }
-localStorage.setItem("order_total", total);
-  
-  // 🔹 kirim ke backend (Vercel nanti)
   fetch("https://unlockskill-backend.vercel.app/api/create-transaction", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       order_id: "ORDER-" + Date.now(),
-      gross_amount: total,
-      name: name,
-      email: email
+      gross_amount: 89000,
+      name: "Test User",
+      email: "test@email.com"
     })
   })
-  .then(res => res.json())
+  .then(res => {
+    alert("2️⃣ Backend merespon");
+    return res.json();
+  })
   .then(data => {
-
-    // 🔹 tampilkan popup Midtrans
-    snap.pay(data.token, {
-
-      onSuccess: function (result) {
-        console.log("SUCCESS", result);
-        window.location.href = "success.html";
-      },
-
-      onPending: function (result) {
-        alert("Pembayaran belum selesai, silakan selesaikan pembayaran");
-      },
-
-      onError: function (result) {
-        alert("Pembayaran gagal");
-      },
-
-      onClose: function () {
-        alert("Kamu menutup popup pembayaran");
-      }
-
-    });
-
+    alert("3️⃣ Token diterima");
+    snap.pay(data.token);
+  })
+  .catch(err => {
+    alert("❌ ERROR: " + err.message);
   });
-
 });
 </script>
 </body>
